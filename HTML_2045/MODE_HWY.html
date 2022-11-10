@@ -1,0 +1,1108 @@
+
+    <html>
+<head>
+
+
+<title>2045_CA  Tampa Bay Regional Planning Model </title>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.98.0">
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--Load jQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+
+
+<!-- SEARCH CONTROL -->
+	<link rel="stylesheet" href="src/leaflet-search.css"/>
+
+<!-- Chart.js -->	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+
+	<!-- Jquery JS -->
+	<script src="http://code.jqiery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<!-- Leaflet JS -->
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		  
+		   
+	
+	<link rel="stylesheet" href="leaflet/leaflet.css"/>
+	<script src="leaflet/leaflet.js"></script> 
+	<script src="js/l.control.geosearch.js"></script>
+	<script src="js/l.geosearch.provider.google.js"></script>
+    <link rel="stylesheet" href="css/l.geosearch.css"/>
+    <script src="src/leaflet.label.js"></script>
+
+
+
+<!-- Main Style -->
+    <link rel="stylesheet" href="css/summary.css"/>
+
+
+ </head>
+    <style>
+ 
+    
+   thead {color: black;}
+    tbody {color: black;}
+    tfoot {color: red;}
+    table{width:550px;height:500px;}
+    table, th, td {
+      border: 1px solid black;
+      text-align:center;
+      font-size: 12px;
+      height:20px;
+      border-collapse: collapse;
+    }
+td:nth-child(1) {
+    text-align:center;
+}
+td:nth-child(2) {
+     text-align:right;
+}
+td:nth-child(3) {
+         text-align:right;
+}
+td:nth-child(4) {
+         text-align:right;
+}
+td:nth-child(5) {
+         text-align:right;
+}
+td:nth-child(6) {
+         text-align:right;
+}
+td:nth-child(7) {
+         text-align:center;
+}
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      * {
+  box-sizing: border-box;
+}
+
+.box {
+  position:absolute;
+  top:55px;
+  width: 45;
+  height:100%;
+}
+.box_1 {
+  position:absolute;
+  top:630px;
+  left:40px;
+  width: 580px;
+  height:30;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.my-label{
+   background:#F2F2F2;
+}
+
+    </style>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <body>
+
+<main class="d-flex flex-nowrap" style="position:relative">
+<div class="flex-shrink-0 p-3" style="width: 230px;background-color:#F2F2F2">
+    <a href="#" class="d-flex align-items-left pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <span class="fs-4 fw-semibold" style="color:#6C8D9C;font-weight:bold">Summary Index</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li><a href="Home.html" class="btn btn-toggle d-inline-flex align-items-center rounded border-0" aria-expanded="false">Home</a></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#EE-collapse" aria-expanded="false">
+         External
+        </button>
+        <div class="collapse" id="EE-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="EEIN.html" class="link-dark d-inline-flex text-decoration-none rounded">Input EE Trips</a></li>
+            <li><a href="EEOUT.html" class="link-dark d-inline-flex text-decoration-none rounded" ">Output EE Trips</a></li>
+          </ul>
+        </div>
+      </li>
+           <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#generation-collapse" aria-expanded="false">
+          Trip Generation
+        </button>
+        <div class="collapse" id="generation-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="GEN_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Production & Attraction</a></li>
+          <li><a href="GEN_INPUT.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Generation Statistics</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Trip Distribution
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                     <li><a href="Triplength.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Length Overall</a></li>
+            <li><a href="Triplength_PK_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >PK Trip Length by County </a></li>
+            <li><a href="Triplength_OP_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >OP Trip Length by County </a></li>
+             <li><a href="DIST_Intra.html" class="link-dark d-inline-flex text-decoration-none rounded" >Intrazonal Trips Overall</a></li>
+             <li><a href="DIST_intra_County_PK.html" class="link-dark d-inline-flex text-decoration-none rounded" >PK Intrazonal Trips by County </a></li>
+             <li><a href="DIST_intra_County_OP.html" class="link-dark d-inline-flex text-decoration-none rounded" >OP Intrazonal Trips by County </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+          Mode Choice
+        </button>
+        <div class="collapse show" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="MODE_overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Model Choice Overall</a></li>
+            <li><a href="MODE_HWY.html" class="link-dark d-inline-flex text-decoration-none rounded" style="background-color:ADCEDE" >Highway Trips</a></li>
+            <li><a href="MODE_transit.html" class="link-dark d-inline-flex text-decoration-none rounded" >Transit Trips</a></li>
+          </ul>
+        </div>
+      </li>
+     <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Transit-collapse" aria-expanded="false">
+          Transit Assignment
+        </button>
+        <div class="collapse" id="Transit-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="TRANSIT_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Transit Summary</a></li>
+  
+          </ul>
+        </div>
+      </li>
+            <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Analysis-collapse" aria-expanded="false">
+ Highway Analysis
+        </button>
+        <div class="collapse" id="Analysis-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Analysis_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Volume/Capacity</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+ <div class="notation" id="mode_overall">
+    <h6 style="padding: 6px 0;color:black"> *SOV: Drive Alone  <br>*HOV: Share Ride 2 and 3+ </h6>
+    </div>
+  <div class="button_op" id="buttons">
+      <button id="opPerson" type="button" style="width:222px; height:25px; font-size:12px"> Off-Peak Person Trips </button>
+																																							   
+      <button id="opVehicle" type="button" style="width:222px; height:25px; font-size:12px"> Off-Peak Vehicle Trips </button>
+      </div>
+      <div class="map_mode" id="map_mode"> 
+      </div>
+      
+      <div class="button_pk" id="buttons">
+																																		 
+      <button id="pkPerson" type="button" style="width:222px; height:25px; font-size:12px; background-color: #F3A27C"> Peak Person Trips </button>
+      <button id="pkVehicle" type="button" style="width:222px; height:25px; font-size:12px"> Peak Vehicle Trips </button>
+      </div>
+
+    <header class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+			<a href="https://tdaappsprod.dot.state.fl.us/fto/" target="_blank">
+				<img src="images/fdot_logo_white.png" id="fdot_logo" style="height: 48px; float:left"/>
+			</a>
+		<div class="collapse navbar-collapse" id="bdNavbar">
+		<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+			<li class="nav-item col-6 col-md-auto">
+			<a class="nav-link p-3 active" aria-current="true"><b>2045_CA  Tampa Bay Regional Planning Model </b></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+			<li class="nav-item col-6 col-md-auto">
+				<a href="https://bcceng.com/" target="_blank"><img src="images/bcc_logo.png" id="bcc_logo" style="height: 48px;"/></a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+  <a class="contactlink" id="contactlink" aria-current="true" href="https://bccorlando.wixsite.com/tbrpm" target="_blank" style="color: white;"><b>Feedback</b></a>&nbsp
+	</header>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<div class="MODE_HWYOP" id="barchart_PANDAS">
+    <canvas id="bar-chart" style="width:100%;max-width:1200px"></canvas>
+    </div>
+ 	<div class="MODE_HWYPK" id="barchart_PANDAS1">
+    <canvas id="bar-chart1" style="width:100%;max-width:1200px"></canvas>
+    </div>   
+     	<div class="MODE_HWYDA" id="barchart_PANDAS2">
+    <canvas id="bar-chart2" style="width:100%;max-width:1200px"></canvas>
+    </div>  
+<script>
+
+var op2_sovp = ['2210808.0','1279587.0','773727.0','256264.0','182615.0','27890.0','56720.0'];
+var op2_hovp=['2180377.0','1243301.0','819272.0','267463.0','200618.0','39308.0','59561.0'];
+var op2_sovv=['2210808','1279587','773727','256264','182615','27890','56720'];
+var op2_hovv=['948943','544829','354977','114886','85336','16215','24234'];
+
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Hillsborough","Pinellas","Pasco","Hernando","Citrus","Other","External"],
+      datasets: [
+        {
+          label: "SOV Person Trips",
+          backgroundColor: "#C1dfec",
+          data: op2_sovp
+        }, {
+          label: "HOV Person Trips",
+          backgroundColor: "#5eadd0",
+          data: op2_hovp
+        }, {
+          label: "SOV Vehicle Trips",
+          backgroundColor: "#Eeb092",
+          data: op2_sovv
+        }, {
+          label: "HOV Vehicle Trips",
+          backgroundColor: "#Bf6d46",
+          data: op2_hovv
+        }
+      ]
+    },
+    options: { scales:{
+        x: {
+            ticks: {
+                font: {
+                    size: 10,
+                }
+            }
+        },
+        y: {
+            ticks: {
+                font: {
+                    size: 10,
+                }
+            }
+        }
+      },
+      plugins:{
+      legend:{
+          display:true,
+          position:"bottom",
+          labels:{
+            font:{
+              size:10
+            }
+          }
+
+        },  
+      title: {
+        display: true,
+        text: 'Off-Peak Highway Trips',
+        font:{
+          size:14
+        }
+      }
+      }
+    }
+});
+
+var pk2_sovp = ['1824003.0','1024635.0','634944.0','209143.0','146288.0','24016.0','55689.0'];
+var pk2_hovp=['1496897.0','837236.0','563947.0','179830.0','127531.0','26781.0','41507.0'];
+var pk2_sovv=['1824003.0','1024635.0','634944.0','209143.0','146288.0','24016.0','55689.0'];
+var pk2_hovv=['656438.6508937713','368598.85465572454','245988.94744437456','78199.8635766438','55463.42190043047','11216.616174658275','16973.11581160506'];
+
+new Chart(document.getElementById("bar-chart1"), {
+    type: 'bar',
+    data: {
+      labels: ["Hillsborough","Pinellas","Pasco","Hernando","Citrus","Other","External"],
+      datasets: [
+        {
+          label: "SOV Person Trips",
+          backgroundColor: "#C1dfec",
+          data: pk2_sovp
+        }, {
+          label: "HOV Person Trips",
+          backgroundColor: "#5eadd0",
+          data: pk2_hovp
+        }, {
+          label: "SOV Vehicle Trips",
+          backgroundColor: "#Eeb092",
+          data: pk2_sovv
+        }, {
+          label: "HOV Vehicle Trips",
+          backgroundColor: "#Bf6d46",
+          data: pk2_hovv
+        }
+      ]
+    },
+    options: {
+      scales:{
+        x: {
+            ticks: {
+                font: {
+                    size: 10,
+                }
+            }
+        },
+        y: {
+            ticks: {
+                font: {
+                    size: 10,
+                }
+            }
+        }
+      },
+      plugins:{
+        legend:{
+           position:"bottom",
+          display:true,
+          labels:{
+            font:{
+              size:10
+            }
+          }
+
+        },
+      title: {
+        display: true,
+        text: 'Peak Highway Trips',
+        font:{
+          size:14
+        }
+      }
+      }
+    }
+});
+var all2_sovp = ['4034811.0','2304222.0','1408671.0','465407.0','328903.0','51907.0','112409.0'];
+var all2_hovp=['3677273.0','2080536.0','1383219.0','447293.0','328149.0','66089.0','101069.0'];
+var all2_sovv=['4034811','2304222','1408671','465407','328903','51907','112409'];
+var all2_hovv=['1605382','913428','600966','193086','140799','27431','41207'];
+
+new Chart(document.getElementById("bar-chart2"), {
+    type: 'bar',
+    data: {
+      labels: ["Hillsborough","Pinellas","Pasco","Hernando","Citrus","Other","External"],
+      datasets: [
+        {
+          label: "SOV Person Trips",
+          backgroundColor: "#C1dfec",
+          data: all2_sovp
+        }, {
+          label: "HOV Person Trips",
+          backgroundColor: "#5eadd0",
+          data: all2_hovp
+        }, {
+          label: "SOV Vehicle Trips",
+          backgroundColor: "#Eeb092",
+          data: all2_sovv
+        }, {
+          label: "HOV Vehicle Trips",
+          backgroundColor: "#Bf6d46",
+          data: all2_hovv
+        }
+      ]
+    },
+    options: {
+      scales:{
+        x: {
+            ticks: {
+                font: {
+                    size: 10,
+                }
+            }
+        },
+        y: {
+            ticks: {
+                font: {
+                    size: 10,
+                }
+            }
+        }
+      },
+      plugins:{
+        legend:{
+           position:"bottom",
+          display:true,
+          labels:{
+            font:{
+              size:10
+            }
+          }
+
+        },
+      title: {
+        display: true,
+        text: 'Daily Highway Trips',
+        font:{
+          size:14
+        }
+      }
+      }
+    }
+});
+
+
+
+</script>	
+
+<script>
+
+
+var hills_opp= 'Hillsborough:<br>SOV:2,210,808<br>HOV:2,180,377<br>Total:4,391,185';
+var pasco_opp= 'Pasco:<br>SOV:773,727<br>HOV:819,272<br>Total:1,592,998';
+var hernando_opp= 'Hernando:<br>SOV:256,264<br>HOV:267,463<br>Total:523,727';
+var pinellas_opp= 'Pinellas:<br>SOV:1,279,587<br>HOV:1,243,301<br>Total:2,522,888';
+var citrus_opp= 'Citrus:<br>SOV:182,615<br>HOV:200,618<br>Total:383,233';
+
+var hills_pkp= 'Hillsborough:<br>SOV:1,824,003<br>HOV:1,496,897<br>Total:3,320,900';
+var pasco_pkp= 'Pasco:<br>SOV:634,944<br>HOV:563,947<br>Total:1,198,892';
+var hernando_pkp= 'Hernando:<br>SOV:209,143<br>HOV:179,830<br>Total:388,973';
+var pinellas_pkp= 'Pinellas:<br>SOV:1,024,635<br>HOV:837,236<br>Total:1,861,871';
+var citrus_pkp= 'Citrus:<br>SOV:146,288<br>HOV:127,531<br>Total:273,819';
+
+var hills_allp= 'Hillsborough:<br>SOV:4,034,811<br>HOV:3,677,273<br>Total:7,712,085';
+var pasco_allp= 'Pasco:<br>SOV:1,408,671<br>HOV:1,383,219<br>Total:2,791,890';
+var hernando_allp= 'Hernando:<br>SOV:465,407<br>HOV:447,293<br>Total:912,700';
+var pinellas_allp= 'Pinellas:<br>SOV:2,304,222<br>HOV:2,080,536<br>Total:4,384,759';
+var citrus_allp= 'Citrus:<br>SOV:328,903<br>HOV:328,149<br>Total:657,052';
+
+var hills_opv= 'Hillsborough:<br>SOV:2,210,808<br>HOV:948,944<br>Total:3,159,752';
+var pasco_opv= 'Pasco:<br>SOV:773,727<br>HOV:354,978<br>Total:1,128,704';
+var hernando_opv= 'Hernando:<br>SOV:256,264<br>HOV:114,886<br>Total:371,150';
+var pinellas_opv= 'Pinellas:<br>SOV:1,279,587<br>HOV:544,830<br>Total:1,824,417';
+var citrus_opv= 'Citrus:<br>SOV:182,615<br>HOV:85,336<br>Total:267,951';
+
+var hills_pkv= 'Hillsborough:<br>SOV:1,824,003<br>HOV:656,439<br>Total:2,480,442';
+var pasco_pkv= 'Pasco:<br>SOV:634,944<br>HOV:245,989<br>Total:880,933';
+var hernando_pkv= 'Hernando:<br>SOV:209,143<br>HOV:78,200<br>Total:287,343';
+var pinellas_pkv= 'Pinellas:<br>SOV:1,024,635<br>HOV:368,599<br>Total:1,393,234';
+var citrus_pkv= 'Citrus:<br>SOV:146,288<br>HOV:55,463<br>Total:201,751';
+
+var hills_allv= 'Hillsborough:<br>SOV:4,034,811<br>HOV:1,605,382<br>Total:5,640,194';
+var pasco_allv= 'Pasco:<br>SOV:1,408,671<br>HOV:600,966<br>Total:2,009,637';
+var hernando_allv= 'Hernando:<br>SOV:465,407<br>HOV:193,086<br>Total:658,493';
+var pinellas_allv= 'Pinellas:<br>SOV:2,304,222<br>HOV:913,429<br>Total:3,217,651';
+var citrus_allv= 'Citrus:<br>SOV:328,903<br>HOV:140,800<br>Total:469,702';
+
+
+var map = L.map('map_mode').setView([28.276140, -82.585263], 9);
+	
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png', {
+attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+subdomains: 'abcd',
+maxZoom: 15
+  }).addTo(map);
+
+      var hillsborough = new L.marker([28.039646, -82.420602], { opacity: 0.01 });
+      hillsborough.bindLabel(hills_pkp, {noHide: true, className: "my-label", offset: [0, 0]});
+      hillsborough.addTo(map);
+
+      var pasco = new L.marker([28.295848, -82.471609], { opacity: 0.01 });
+      pasco.bindLabel(pasco_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+      pasco.addTo(map);
+
+      var hernando = new L.marker([28.566409, -82.471609], { opacity: 0.01 });
+      hernando.bindLabel(hernando_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+      hernando.addTo(map);
+
+      var pinellas = new L.marker([27.907086, -82.759073], { opacity: 0.01 });
+      pinellas.bindLabel(pinellas_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+      pinellas.addTo(map);
+
+      var citrus = new L.marker([28.785449, -82.471609], { opacity: 0.01 });
+      citrus.bindLabel(citrus_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+      citrus.addTo(map);
+
+	 var hillsborough = L.icon({
+        iconUrl: 'images/County/hillsborough.png',
+        iconSize: [35,17],
+      });
+      L.marker([28.039646, -82.420602],{icon: hillsborough}).addTo(map)  
+  
+      var pinellas = L.icon({
+        iconUrl: 'images/County/pinellas.png',
+        iconSize: [35,17],
+
+      });
+      L.marker([27.907086, -82.759073],{icon: pinellas}).addTo(map)
+  
+      var pasco = L.icon({
+        iconUrl: 'images/County/pasco.png',
+        iconSize: [30,30],
+      });
+      L.marker([28.295848, -82.471609],{icon: pasco}).addTo(map)
+      var hernando = L.icon({
+        iconUrl: 'images/County/hernando.png',
+        iconSize: [30,30],
+      });
+      L.marker([28.566409, -82.471609],{icon: hernando}).addTo(map)
+      var citrus = L.icon({
+        iconUrl: 'images/County/citrus.png',
+        iconSize: [30,30],
+      });
+      L.marker([28.785449, -82.471609],{icon: citrus}).addTo(map)
+
+      var button_opp = document.getElementById("opPerson");
+      button_opp.addEventListener("click", function(event){
+        button_opp.style.backgroundColor = "#92B6C7";
+        button_opv.style.backgroundColor = "#f0f0f0";
+        button_pkp.style.backgroundColor = "#f0f0f0";
+        button_pkv.style.backgroundColor = "#f0f0f0";
+        var hillsborough = new L.marker([28.039646, -82.420602], { opacity: 0.01 });
+        hillsborough.bindLabel(hills_opp, {noHide: true, className: "my-label", offset: [0, 0]});
+        hillsborough.addTo(map);
+        var pasco = new L.marker([28.295848, -82.471609], { opacity: 0.01 });
+        pasco.bindLabel(pasco_opp, {noHide: true, className: "my-label", offset: [0, 0] });
+        pasco.addTo(map);
+        var hernando = new L.marker([28.566409, -82.471609], { opacity: 0.01 });
+        hernando.bindLabel(hernando_opp, {noHide: true, className: "my-label", offset: [0, 0] });
+        hernando.addTo(map);
+        var pinellas = new L.marker([27.907086, -82.759073], { opacity: 0.01 });
+        pinellas.bindLabel(pinellas_opp, {noHide: true, className: "my-label", offset: [0, 0] });
+        pinellas.addTo(map);
+        var citrus = new L.marker([28.785449, -82.471609], { opacity: 0.01 });
+        citrus.bindLabel(citrus_opp, {noHide: true, className: "my-label", offset: [0, 0] });
+        citrus.addTo(map);
+
+        var hillsborough = L.icon({
+          iconUrl: 'images/County/hillsborough.png',
+          iconSize: [35,17],
+        });
+        L.marker([28.039646, -82.420602],{icon: hillsborough}).addTo(map)  
+        var pinellas = L.icon({
+          iconUrl: 'images/County/pinellas.png',
+          iconSize: [35,17],
+        });
+        L.marker([27.907086, -82.759073],{icon: pinellas}).addTo(map)
+        var pasco = L.icon({
+          iconUrl: 'images/County/pasco.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.295848, -82.471609],{icon: pasco}).addTo(map)
+        var hernando = L.icon({
+          iconUrl: 'images/County/hernando.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.566409, -82.471609],{icon: hernando}).addTo(map)
+        var citrus = L.icon({
+          iconUrl: 'images/County/citrus.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.785449, -82.471609],{icon: citrus}).addTo(map)
+      });
+
+      var button_opv = document.getElementById("opVehicle");
+      button_opv.addEventListener("click", function(event){
+        button_opv.style.backgroundColor = "#92B6C7";
+        button_opp.style.backgroundColor = "#f0f0f0";
+        button_pkp.style.backgroundColor = "#f0f0f0";
+        button_pkv.style.backgroundColor = "#f0f0f0";
+        var hillsborough = new L.marker([28.039646, -82.420602], { opacity: 0.01 });
+        hillsborough.bindLabel(hills_opv, {noHide: true, className: "my-label", offset: [0, 0]});
+        hillsborough.addTo(map);
+        var pasco = new L.marker([28.295848, -82.471609], { opacity: 0.01 });
+        pasco.bindLabel(pasco_opv, {noHide: true, className: "my-label", offset: [0, 0] });
+        pasco.addTo(map);
+        var hernando = new L.marker([28.566409, -82.471609], { opacity: 0.01 });
+        hernando.bindLabel(hernando_opv, {noHide: true, className: "my-label", offset: [0, 0] });
+        hernando.addTo(map);
+        var pinellas = new L.marker([27.907086, -82.759073], { opacity: 0.01 });
+        pinellas.bindLabel(pinellas_opv, {noHide: true, className: "my-label", offset: [0, 0] });
+        pinellas.addTo(map);
+        var citrus = new L.marker([28.785449, -82.471609], { opacity: 0.01 });
+        citrus.bindLabel(citrus_opv, {noHide: true, className: "my-label", offset: [0, 0] });
+        citrus.addTo(map);
+
+        var hillsborough = L.icon({
+          iconUrl: 'images/County/hillsborough.png',
+          iconSize: [35,17],
+        });
+        L.marker([28.039646, -82.420602],{icon: hillsborough}).addTo(map)  
+        var pinellas = L.icon({
+          iconUrl: 'images/County/pinellas.png',
+          iconSize: [35,17],
+        });
+        L.marker([27.907086, -82.759073],{icon: pinellas}).addTo(map)
+        var pasco = L.icon({
+          iconUrl: 'images/County/pasco.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.295848, -82.471609],{icon: pasco}).addTo(map)
+        var hernando = L.icon({
+          iconUrl: 'images/County/hernando.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.566409, -82.471609],{icon: hernando}).addTo(map)
+        var citrus = L.icon({
+          iconUrl: 'images/County/citrus.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.785449, -82.471609],{icon: citrus}).addTo(map)
+      });
+
+      var button_pkp = document.getElementById("pkPerson");
+      button_pkp.addEventListener("click", function(event){
+        button_pkp.style.backgroundColor = "#F3A27C";
+        button_opv.style.backgroundColor = "#f0f0f0";
+        button_opp.style.backgroundColor = "#f0f0f0";
+        button_pkv.style.backgroundColor = "#f0f0f0";
+        var hillsborough = new L.marker([28.039646, -82.420602], { opacity: 0.01 });
+        hillsborough.bindLabel(hills_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+        hillsborough.addTo(map);
+        var pasco = new L.marker([28.295848, -82.471609], { opacity: 0.01 });
+        pasco.bindLabel(pasco_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+        pasco.addTo(map);
+        var hernando = new L.marker([28.566409, -82.471609], { opacity: 0.01 });
+        hernando.bindLabel(hernando_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+        hernando.addTo(map);
+        var pinellas = new L.marker([27.907086, -82.759073], { opacity: 0.01 });
+        pinellas.bindLabel(pinellas_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+        pinellas.addTo(map);
+        var citrus = new L.marker([28.785449, -82.471609], { opacity: 0.01 });
+        citrus.bindLabel(citrus_pkp, {noHide: true, className: "my-label", offset: [0, 0] });
+        citrus.addTo(map);
+
+        var hillsborough = L.icon({
+          iconUrl: 'images/County/hillsborough.png',
+          iconSize: [35,17],
+        });
+        L.marker([28.039646, -82.420602],{icon: hillsborough}).addTo(map)  
+        var pinellas = L.icon({
+          iconUrl: 'images/County/pinellas.png',
+          iconSize: [35,17],
+        });
+        L.marker([27.907086, -82.759073],{icon: pinellas}).addTo(map)
+        var pasco = L.icon({
+          iconUrl: 'images/County/pasco.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.295848, -82.471609],{icon: pasco}).addTo(map)
+        var hernando = L.icon({
+          iconUrl: 'images/County/hernando.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.566409, -82.471609],{icon: hernando}).addTo(map)
+        var citrus = L.icon({
+          iconUrl: 'images/County/citrus.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.785449, -82.471609],{icon: citrus}).addTo(map)
+      });
+
+      var button_pkv = document.getElementById("pkVehicle");
+      button_pkv.addEventListener("click", function(event){
+        button_pkv.style.backgroundColor = "#F3A27C";
+        button_opp.style.backgroundColor = "#f0f0f0";
+        button_opv.style.backgroundColor = "#f0f0f0";
+        button_pkp.style.backgroundColor = "#f0f0f0";
+        var hillsborough = new L.marker([28.039646, -82.420602], { opacity: 0.01 });
+        hillsborough.bindLabel(hills_pkv, {noHide: true, className: "my-label", offset: [0, 0] });
+        hillsborough.addTo(map);
+        var pasco = new L.marker([28.295848, -82.471609], { opacity: 0.01 });
+        pasco.bindLabel(pasco_pkv, {noHide: true, className: "my-label", offset: [0, 0] });
+        pasco.addTo(map);
+        var hernando = new L.marker([28.566409, -82.471609], { opacity: 0.01 });
+        hernando.bindLabel(hernando_pkv, {noHide: true, className: "my-label", offset: [0, 0] });
+        hernando.addTo(map);
+        var pinellas = new L.marker([27.907086, -82.759073], { opacity: 0.01 });
+        pinellas.bindLabel(pinellas_pkv, {noHide: true, className: "my-label", offset: [0, 0] });
+        pinellas.addTo(map);
+        var citrus = new L.marker([28.785449, -82.471609], { opacity: 0.01 });
+        citrus.bindLabel(citrus_pkv, {noHide: true, className: "my-label", offset: [0, 0] });
+        citrus.addTo(map);
+
+        var hillsborough = L.icon({
+          iconUrl: 'images/County/hillsborough.png',
+          iconSize: [35,17],
+        });
+        L.marker([28.039646, -82.420602],{icon: hillsborough}).addTo(map)  
+        var pinellas = L.icon({
+          iconUrl: 'images/County/pinellas.png',
+          iconSize: [35,17],
+        });
+        L.marker([27.907086, -82.759073],{icon: pinellas}).addTo(map)
+        var pasco = L.icon({
+          iconUrl: 'images/County/pasco.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.295848, -82.471609],{icon: pasco}).addTo(map)
+        var hernando = L.icon({
+          iconUrl: 'images/County/hernando.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.566409, -82.471609],{icon: hernando}).addTo(map)
+        var citrus = L.icon({
+          iconUrl: 'images/County/citrus.png',
+          iconSize: [30,30],
+        });
+        L.marker([28.785449, -82.471609],{icon: citrus}).addTo(map)
+      });
+
+</script>
+</body>
+
+   <div class="MODEhigh_op" id="op">
+    <h4 style="padding: 5px 0;color:black">
+    Off-Peak Highway Trips</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SOV Person Trips</th>
+      <th>HOV Person Trips</th>
+      <th>SOV Vehicle Trips</th>
+      <th>HOV Vehicle Trips</th>
+      <th>Total Person Trips</th>
+      <th>Total Vehicle Trips</th>
+      <th>Auto Occupancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hillsborough</th>
+      <td>2,210,808</td>
+      <td>2,180,377</td>
+      <td>2,210,808</td>
+      <td>948,944</td>
+      <td>4,391,185</td>
+      <td>3,159,752</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <th>Pinellas</th>
+      <td>1,279,587</td>
+      <td>1,243,301</td>
+      <td>1,279,587</td>
+      <td>544,830</td>
+      <td>2,522,888</td>
+      <td>1,824,417</td>
+      <td>1.38</td>
+    </tr>
+    <tr>
+      <th>Pasco</th>
+      <td>773,727</td>
+      <td>819,272</td>
+      <td>773,727</td>
+      <td>354,978</td>
+      <td>1,592,998</td>
+      <td>1,128,704</td>
+      <td>1.41</td>
+    </tr>
+    <tr>
+      <th>Hernando</th>
+      <td>256,264</td>
+      <td>267,463</td>
+      <td>256,264</td>
+      <td>114,886</td>
+      <td>523,727</td>
+      <td>371,150</td>
+      <td>1.41</td>
+    </tr>
+    <tr>
+      <th>Citrus</th>
+      <td>182,615</td>
+      <td>200,618</td>
+      <td>182,615</td>
+      <td>85,336</td>
+      <td>383,233</td>
+      <td>267,951</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>27,890</td>
+      <td>39,308</td>
+      <td>27,890</td>
+      <td>16,215</td>
+      <td>67,198</td>
+      <td>44,106</td>
+      <td>1.52</td>
+    </tr>
+    <tr>
+      <th>External</th>
+      <td>56,720</td>
+      <td>59,561</td>
+      <td>56,720</td>
+      <td>24,234</td>
+      <td>116,281</td>
+      <td>80,954</td>
+      <td>1.44</td>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td>4,787,611</td>
+      <td>4,809,899</td>
+      <td>4,787,611</td>
+      <td>2,089,423</td>
+      <td>9,597,510</td>
+      <td>6,877,034</td>
+      <td>1.40</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+   <div class="MODEhigh_pk" id="pk">
+    <h4 style="padding: 5px 0;color:black">
+    Peak Highway Trips</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SOV Person Trips</th>
+      <th>HOV Person Trips</th>
+      <th>SOV Vehicle Trips</th>
+      <th>HOV Vehicle Trips</th>
+      <th>Total Person Trips</th>
+      <th>Total Vehicle Trips</th>
+      <th>Auto Occupancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hillsborough</th>
+      <td>1,824,003</td>
+      <td>1,496,897</td>
+      <td>1,824,003</td>
+      <td>656,439</td>
+      <td>3,320,900</td>
+      <td>2,480,442</td>
+      <td>1.34</td>
+    </tr>
+    <tr>
+      <th>Pinellas</th>
+      <td>1,024,635</td>
+      <td>837,236</td>
+      <td>1,024,635</td>
+      <td>368,599</td>
+      <td>1,861,871</td>
+      <td>1,393,234</td>
+      <td>1.34</td>
+    </tr>
+    <tr>
+      <th>Pasco</th>
+      <td>634,944</td>
+      <td>563,947</td>
+      <td>634,944</td>
+      <td>245,989</td>
+      <td>1,198,892</td>
+      <td>880,933</td>
+      <td>1.36</td>
+    </tr>
+    <tr>
+      <th>Hernando</th>
+      <td>209,143</td>
+      <td>179,830</td>
+      <td>209,143</td>
+      <td>78,200</td>
+      <td>388,973</td>
+      <td>287,343</td>
+      <td>1.35</td>
+    </tr>
+    <tr>
+      <th>Citrus</th>
+      <td>146,288</td>
+      <td>127,531</td>
+      <td>146,288</td>
+      <td>55,463</td>
+      <td>273,819</td>
+      <td>201,751</td>
+      <td>1.36</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>24,016</td>
+      <td>26,781</td>
+      <td>24,016</td>
+      <td>11,217</td>
+      <td>50,798</td>
+      <td>35,233</td>
+      <td>1.44</td>
+    </tr>
+    <tr>
+      <th>External</th>
+      <td>55,689</td>
+      <td>41,507</td>
+      <td>55,689</td>
+      <td>16,973</td>
+      <td>97,196</td>
+      <td>72,662</td>
+      <td>1.34</td>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td>3,918,719</td>
+      <td>3,273,730</td>
+      <td>3,918,719</td>
+      <td>1,432,879</td>
+      <td>7,192,448</td>
+      <td>5,351,598</td>
+      <td>1.34</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+   <div class="MODEhigh_all" id="pk">
+    <h4 style="padding: 5px 0;color:black">
+    Daily Highway Trips</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SOV Person Trips</th>
+      <th>HOV Person Trips</th>
+      <th>SOV Vehicle Trips</th>
+      <th>HOV Vehicle Trips</th>
+      <th>Total Person Trips</th>
+      <th>Total Vehicle Trips</th>
+      <th>Auto Occupancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hillsborough</th>
+      <td>4,034,811</td>
+      <td>3,677,273</td>
+      <td>4,034,811</td>
+      <td>1,605,382</td>
+      <td>7,712,085</td>
+      <td>5,640,194</td>
+      <td>1.37</td>
+    </tr>
+    <tr>
+      <th>Pinellas</th>
+      <td>2,304,222</td>
+      <td>2,080,536</td>
+      <td>2,304,222</td>
+      <td>913,429</td>
+      <td>4,384,759</td>
+      <td>3,217,651</td>
+      <td>1.36</td>
+    </tr>
+    <tr>
+      <th>Pasco</th>
+      <td>1,408,671</td>
+      <td>1,383,219</td>
+      <td>1,408,671</td>
+      <td>600,966</td>
+      <td>2,791,890</td>
+      <td>2,009,637</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <th>Hernando</th>
+      <td>465,407</td>
+      <td>447,293</td>
+      <td>465,407</td>
+      <td>193,086</td>
+      <td>912,700</td>
+      <td>658,493</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <th>Citrus</th>
+      <td>328,903</td>
+      <td>328,149</td>
+      <td>328,903</td>
+      <td>140,800</td>
+      <td>657,052</td>
+      <td>469,702</td>
+      <td>1.40</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>51,907</td>
+      <td>66,089</td>
+      <td>51,907</td>
+      <td>27,432</td>
+      <td>117,996</td>
+      <td>79,339</td>
+      <td>1.49</td>
+    </tr>
+    <tr>
+      <th>External</th>
+      <td>112,409</td>
+      <td>101,069</td>
+      <td>112,409</td>
+      <td>41,207</td>
+      <td>213,477</td>
+      <td>153,616</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td>8,706,330</td>
+      <td>8,083,629</td>
+      <td>8,706,330</td>
+      <td>3,522,302</td>
+      <td>16,789,959</td>
+      <td>12,228,632</td>
+      <td>1.37</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        </body>
+        </html>
+        

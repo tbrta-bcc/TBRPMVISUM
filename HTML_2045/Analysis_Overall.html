@@ -1,0 +1,657 @@
+
+    <html>
+	
+<head>
+
+
+<title>2045_CA  Tampa Bay Regional Planning Model </title>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.98.0">
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--Load jQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+
+
+<!-- SEARCH CONTROL -->
+	<link rel="stylesheet" href="src/leaflet-search.css"/>
+
+<!-- Chart.js -->	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+
+	<!-- Jquery JS -->
+	<script src="http://code.jqiery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<!-- Leaflet JS -->
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		  
+		   
+	
+	<link rel="stylesheet" href="leaflet/leaflet.css"/>
+	<script src="leaflet/leaflet.js"></script> 
+	<script src="js/l.control.geosearch.js"></script>
+	<script src="js/l.geosearch.provider.google.js"></script>
+    <link rel="stylesheet" href="css/l.geosearch.css"/>
+        <script src="src/leaflet.label.js"></script>
+
+
+<!-- Main Style -->
+    <link rel="stylesheet" href="css/summary.css"/>
+
+
+ </head>
+    <style>
+    thead {color: black;}
+    tbody {color: black;}
+    tfoot {color: red;}
+    table{width:700px;}
+    th,td{
+      border: 1px solid black;
+      text-align: center;
+      width: 35px;
+      font-size: 12px;
+    }
+
+td:nth-child(1) {
+  width:50%;
+}
+td:nth-child(2) {
+  width:20%;
+  text-align:right
+}
+td:nth-child(3) {
+  width:20%;
+  text-align:right
+}
+td:nth-child(4) {
+  width:20%;
+
+}
+
+  
+ .my-label{
+   background:#F2F2F2;
+   width: 100px;
+}
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      * {
+  box-sizing: border-box;
+}
+
+    </style>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.0.0/chartjs-plugin-annotation.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.js"></script>
+    <body>
+
+<main class="d-flex flex-nowrap" style="position:relative">
+<div class="flex-shrink-0 p-3" style="width: 230px;background-color:#F2F2F2">
+    <a href="#" class="d-flex align-items-left pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <span class="fs-4 fw-semibold" style="color:#6C8D9C;font-weight:bold">Summary Index</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li><a href="Home.html" class="btn btn-toggle d-inline-flex align-items-center rounded border-0" aria-expanded="false">Home</a></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#EE-collapse" aria-expanded="false">
+         External
+        </button>
+        <div class="collapse" id="EE-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="EEIN.html" class="link-dark d-inline-flex text-decoration-none rounded">Input EE Trips</a></li>
+            <li><a href="EEOUT.html" class="link-dark d-inline-flex text-decoration-none rounded" ">Output EE Trips</a></li>
+          </ul>
+        </div>
+      </li>
+           <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#generation-collapse" aria-expanded="false">
+          Trip Generation
+        </button>
+        <div class="collapse" id="generation-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="GEN_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Production & Attraction</a></li>
+          <li><a href="GEN_INPUT.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Generation Statistics</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Trip Distribution
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                 <li><a href="Triplength.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Length Overall</a></li>
+            <li><a href="Triplength_PK_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >PK Trip Length by County </a></li>
+            <li><a href="Triplength_OP_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >OP Trip Length by County </a></li>
+             <li><a href="DIST_Intra.html" class="link-dark d-inline-flex text-decoration-none rounded" >Intrazonal Trips Overall</a></li>
+             <li><a href="DIST_intra_County_PK.html" class="link-dark d-inline-flex text-decoration-none rounded" >PK Intrazonal Trips by County </a></li>
+             <li><a href="DIST_intra_County_OP.html" class="link-dark d-inline-flex text-decoration-none rounded" >OP Intrazonal Trips by County </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Mode Choice
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="MODE_overall.html" class="link-dark d-inline-flex text-decoration-none rounded"   >Model Choice Overall</a></li>
+            <li><a href="MODE_HWY.html" class="link-dark d-inline-flex text-decoration-none rounded" >Highway Trips</a></li>
+            <li><a href="MODE_transit.html" class="link-dark d-inline-flex text-decoration-none rounded" >Transit Trips</a></li>
+          </ul>
+        </div>
+      </li>
+     <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Transit-collapse" aria-expanded="false">
+          Transit Assignment
+        </button>
+        <div class="collapse" id="Transit-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="TRANSIT_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Transit Summary</a></li>
+  
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Highway-collapse" aria-expanded="true">
+         Highway Analysis
+        </button>
+        <div class="collapse show" id="Highway-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Analysis_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" style="background-color:ADCEDE">Volume/Capacity</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+    <header class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+			<a href="https://tdaappsprod.dot.state.fl.us/fto/" target="_blank">
+				<img src="images/fdot_logo_white.png" id="fdot_logo" style="height: 48px; float:left"/>
+			</a>
+		<div class="collapse navbar-collapse" id="bdNavbar">
+		<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+			<li class="nav-item col-6 col-md-auto">
+			<a class="nav-link p-3 active" aria-current="true"><b>2045_CA  Tampa Bay Regional Planning Model </b></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+			<li class="nav-item col-6 col-md-auto">
+				<a href="https://bcceng.com/" target="_blank"><img src="images/bcc_logo.png" id="bcc_logo" style="height: 48px;"/></a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+  <a class="contactlink" id="contactlink" aria-current="true" href="https://bccorlando.wixsite.com/tbrpm" target="_blank" style="color: white;"><b>Feedback</b></a>&nbsp
+	</header>
+<div class="barchart_County" id="barchart_VC">
+  <h4 style="padding: 10px 0;color:black"> Volume/Capacity by County </h4>
+    <canvas id="myChart_1" style="position: relative; height:18vh; width:35vw"></canvas>
+    
+    </div>
+
+    <div class="barchart_AT" id="barchart_AT">
+  <h4 style="padding: 10px 0;color:black"> Volume/Capacity by Area Type </h4>
+    <canvas id="myChart_2" style="position: relative; height:30vh; width:35vw"></canvas>
+    
+    </div>
+
+<div class="barchart_FT" id="barchart_FT">
+  <h4 style="padding: 10px 0;color:black"> Volume/Capacity by Facility Type </h4>
+    <canvas id="myChart_3" style="position: relative; height:20vh; width:35vw"></canvas>
+    
+    </div>
+
+
+
+<script>
+var xValues = ['Hillsborough','Pinellas','Pasco','Hernando','Citrus','Others'];
+var yValues=['0.74','0.58','0.54','0.44','0.38','0.66'];
+
+var xValues1 = ['11','13','14','21','31','32','33','34','41','42','43','51','52'];
+var yValues1 =['0.71','0.43','0.56','0.59','0.58','0.76','0.5','0.49','0.68','0.71','0.73','0.24','0.31'];
+
+var xValues2 = ['Freeway','Divided Arterial','Undivided Arterial','Collector','One Way Facility','Ramps','Toll Facilities'];
+var yValues2 =['0.76','0.73','0.61','0.4','0.67','0.51','0.57'];
+
+new Chart("myChart_1", {
+  type: "bar",
+  data: {
+	labels:xValues,
+    datasets: [{
+      data: yValues,
+        backgroundColor:"#92B6C7",
+    }]
+
+  },
+  bar: {
+        width: {
+            ratio: 0.5 
+        }
+        
+    },
+  options: {
+    legend: {display: false},
+    scales: {
+                    xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: false
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+
+                                max: 1
+                            }
+                        }]
+                },
+  
+  },
+
+  plugins: {
+      datalabels: {
+        color: 'blue',
+        anchor: 'end',
+        align: 'right',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            }
+          }
+        }
+      }
+    },
+});
+
+new Chart("myChart_2", {
+  type: "bar",
+  data: {
+	labels:xValues1,
+    datasets: [{
+      data: yValues1,
+        backgroundColor:"#D37995",
+    }]
+
+  },
+  bar: {
+        width: {
+            ratio: 0.5 
+        }
+        
+    },
+  options: {
+    legend: {display: false},
+    scales: {
+                    xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: false
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+
+                                max: 1
+                            }
+                        }]
+                },
+  
+  },
+
+  plugins: {
+      datalabels: {
+        color: 'blue',
+        anchor: 'end',
+        align: 'right',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            }
+          }
+        }
+      }
+    },
+});
+
+new Chart("myChart_3", {
+  type: "bar",
+  data: {
+	labels:xValues2,
+    datasets: [{
+      data: yValues2,
+        backgroundColor:"#6CBE7C",
+    }]
+
+  },
+  bar: {
+        width: {
+            ratio: 0.5 
+        }
+        
+    },
+  options: {
+    legend: {display: false},
+    scales: {
+                    xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: false
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+
+                                max: 1
+                            }
+                        }]
+                },
+  
+  },
+
+  plugins: {
+      datalabels: {
+        color: 'blue',
+        anchor: 'end',
+        align: 'right',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            }
+          }
+        }
+      }
+    },
+});
+
+
+
+
+</script>
+
+</body>
+
+   <div class="table_county" id="County">
+    <h3 style="padding: 10px 0;color:black">
+    Volume/Capacity by County</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>County</th>
+      <th>Capacity</th>
+      <th>Volume</th>
+      <th>Volume/Capacity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hillsborough</td>
+      <td>206,030,079</td>
+      <td>152,801,553</td>
+      <td>0.74</td>
+    </tr>
+    <tr>
+      <td>Pinellas</td>
+      <td>151,217,365</td>
+      <td>87,885,044</td>
+      <td>0.58</td>
+    </tr>
+    <tr>
+      <td>Pasco</td>
+      <td>71,428,690</td>
+      <td>38,421,249</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <td>Hernando</td>
+      <td>28,289,736</td>
+      <td>12,442,693</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <td>Citrus</td>
+      <td>15,894,862</td>
+      <td>6,091,952</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <td>Others</td>
+      <td>5,305,457</td>
+      <td>3,504,098</td>
+      <td>0.66</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+   <div class="table_FT" id="FT">
+    <h4 style="padding: 5px 0;color:black">
+    Volume/Capacity by Facility Type</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Facility Type</th>
+      <th>Capacity</th>
+      <th>Volume</th>
+      <th>Volume/Capacity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Freeway</td>
+      <td>75,528,481</td>
+      <td>57,389,564</td>
+      <td>0.76</td>
+    </tr>
+    <tr>
+      <td>Divided Arterial</td>
+      <td>188,457,994</td>
+      <td>137,128,195</td>
+      <td>0.73</td>
+    </tr>
+    <tr>
+      <td>Undivided Arterial</td>
+      <td>31,103,782</td>
+      <td>19,043,922</td>
+      <td>0.61</td>
+    </tr>
+    <tr>
+      <td>Collector</td>
+      <td>109,506,774</td>
+      <td>44,152,885</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <td>One Way Facility</td>
+      <td>21,176,484</td>
+      <td>14,181,952</td>
+      <td>0.67</td>
+    </tr>
+    <tr>
+      <td>Ramps</td>
+      <td>18,421,378</td>
+      <td>9,360,796</td>
+      <td>0.51</td>
+    </tr>
+    <tr>
+      <td>Toll Facilities</td>
+      <td>35,635,924</td>
+      <td>20,151,401</td>
+      <td>0.57</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+   <div class="table_AT" id="AT">
+    <h4 style="padding: 5px 0;color:black">
+    Volume/Capacity by Area Type</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Area Type</th>
+      <th>Capacity</th>
+      <th>Volume</th>
+      <th>Volume/Capacity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>11: Urbanized Area (over 500,000) Primary City CBD</td>
+      <td>15,046,450</td>
+      <td>10,650,923</td>
+      <td>0.71</td>
+    </tr>
+    <tr>
+      <td>13: Other Urbanized Area CBD and Small City Dowtown</td>
+      <td>289,926</td>
+      <td>123,267</td>
+      <td>0.43</td>
+    </tr>
+    <tr>
+      <td>14: Non-Urbanized Area Small City Downtown</td>
+      <td>672,540</td>
+      <td>375,590</td>
+      <td>0.56</td>
+    </tr>
+    <tr>
+      <td>21: All CBD Fringe Areas</td>
+      <td>12,738,377</td>
+      <td>7,491,888</td>
+      <td>0.59</td>
+    </tr>
+    <tr>
+      <td>31: Developed Portions of Urbanized Areas</td>
+      <td>260,101,857</td>
+      <td>151,961,153</td>
+      <td>0.58</td>
+    </tr>
+    <tr>
+      <td>32: Undeveloped Portions of Urbanized Areas</td>
+      <td>18,649,006</td>
+      <td>14,238,845</td>
+      <td>0.76</td>
+    </tr>
+    <tr>
+      <td>33: Transitioning Areas/Urban Areas over 5,000 Population</td>
+      <td>20,654,229</td>
+      <td>10,428,369</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <td>34: Residential Beach Area</td>
+      <td>2,125,731</td>
+      <td>1,045,945</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <td>41: Major Outlying Business Districts</td>
+      <td>16,182,875</td>
+      <td>11,013,300</td>
+      <td>0.68</td>
+    </tr>
+    <tr>
+      <td>42: Other Outlying Business Districts</td>
+      <td>118,580,359</td>
+      <td>84,641,044</td>
+      <td>0.71</td>
+    </tr>
+    <tr>
+      <td>43: Beach OBD</td>
+      <td>2,171,514</td>
+      <td>1,588,852</td>
+      <td>0.73</td>
+    </tr>
+    <tr>
+      <td>51: Developed Rural Areas/Small Cities under 5,000 Population</td>
+      <td>4,772,162</td>
+      <td>1,142,458</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <td>52: Undeveloped Rural Areas</td>
+      <td>21,507,217</td>
+      <td>6,707,081</td>
+      <td>0.31</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,749 @@
+
+<html>
+	
+<head>
+
+
+<title>2045_CA  Tampa Bay Regional Planning Model </title>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.98.0">
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--Load jQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+
+
+<!-- SEARCH CONTROL -->
+	<link rel="stylesheet" href="src/leaflet-search.css"/>
+
+<!-- Chart.js -->	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+
+	<!-- Jquery JS -->
+	<script src="http://code.jqiery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<!-- Leaflet JS -->
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		  
+		   
+	
+	<link rel="stylesheet" href="leaflet/leaflet.css"/>
+	<script src="leaflet/leaflet.js"></script> 
+	<script src="js/l.control.geosearch.js"></script>
+	<script src="js/l.geosearch.provider.google.js"></script>
+    <link rel="stylesheet" href="css/l.geosearch.css"/>
+
+
+
+<!-- Main Style -->
+<link rel="stylesheet" href="css/summary.css"/>
+
+
+ </head>
+    <style>
+ 
+    
+    thead {color: black;}
+    tbody {color: black;}
+    tfoot {color: red;}
+    table{width:600px;height:200px;}
+    table, th, td {
+      border: 1px solid black;
+      text-align: center;
+      font-size: 12px;
+      height:10px;
+      border-collapse: collapse;
+    }
+td:nth-child(1) {
+  width:5%;
+}
+td:nth-child(2) {
+  width:65%;
+  text-align: left;
+}
+td:nth-child(3) {
+  width:5%;
+   text-align: right;
+}
+td:nth-child(4) {
+  width:5%;
+  text-align: right;
+}
+td:nth-child(5) {
+  width:5%;
+  text-align: right;
+}
+td:nth-child(6) {
+  width:5%;
+  text-align: right;
+}
+td:nth-child(7) {
+  width:5%;
+  text-align: right;
+}
+td:nth-child(8) {
+  width:5%;
+  text-align: right;
+}
+
+
+tr {
+  height: 30px;
+  width:100%;
+}
+    
+tr {
+  height: 15px;
+  width:120%;
+}
+
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      * {
+  box-sizing: border-box;
+}
+
+.box {
+  position:absolute;
+  top:55px;
+  width: 45;
+  height:100%;
+}
+.box_1 {
+  position:absolute;
+  top:630px;
+  left:40px;
+  width: 580px;
+  height:30;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    </style>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+
+    <body>
+
+<main class="d-flex flex-nowrap" style="position:relative">
+<div class="flex-shrink-0 p-3" style="width: 230px;background-color:#F2F2F2">
+    <a href="#" class="d-flex align-items-left pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <span class="fs-4 fw-semibold" style="color:#6C8D9C;font-weight:bold">Summary Index</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li><a href="Home.html" class="btn btn-toggle d-inline-flex align-items-center rounded border-0" aria-expanded="false">Home</a></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#EE-collapse" aria-expanded="false">
+         External
+        </button>
+        <div class="collapse" id="EE-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="EEIN.html" class="link-dark d-inline-flex text-decoration-none rounded">Input EE Trips</a></li>
+            <li><a href="EEOUT.html" class="link-dark d-inline-flex text-decoration-none rounded" ">Output EE Trips</a></li>
+          </ul>
+        </div>
+      </li>
+           <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#generation-collapse" aria-expanded="false">
+          Trip Generation
+        </button>
+        <div class="collapse" id="generation-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="GEN_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Production & Attraction</a></li>
+          <li><a href="GEN_INPUT.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Generation Statistics</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Trip Distribution
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Triplength.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Length Overall</a></li>
+            <li><a href="Triplength_PK_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >PK Trip Length by County </a></li>
+            <li><a href="Triplength_OP_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >OP Trip Length by County </a></li>
+             <li><a href="DIST_Intra.html" class="link-dark d-inline-flex text-decoration-none rounded" >Intrazonal Trips Overall</a></li>
+             <li><a href="DIST_intra_County_PK.html" class="link-dark d-inline-flex text-decoration-none rounded" >PK Intrazonal Trips by County </a></li>
+             <li><a href="DIST_intra_County_OP.html" class="link-dark d-inline-flex text-decoration-none rounded" >OP Intrazonal Trips by County </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Mode Choice
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="MODE_overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Model Choice Overall</a></li>
+            <li><a href="MODE_HWY.html" class="link-dark d-inline-flex text-decoration-none rounded" >Highway Trips</a></li>
+            <li><a href="MODE_transit.html" class="link-dark d-inline-flex text-decoration-none rounded"">Transit Trips</a></li>
+          </ul>
+        </div>
+      </li>
+     <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Transit-collapse" aria-expanded="true">
+          Transit Assignment
+        </button>
+        <div class="collapse show" id="Transit-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="TRANSIT_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" style="background-color:ADCEDE" >Transit Summary</a></li>
+  
+          </ul>
+        </div>
+      </li>
+            <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Analysis-collapse" aria-expanded="false">
+ Highway Analysis
+        </button>
+        <div class="collapse" id="Analysis-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Analysis_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Volume/Capacity</a></li>
+            
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+    <header class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+			<a href="https://tdaappsprod.dot.state.fl.us/fto/" target="_blank">
+				<img src="images/fdot_logo_white.png" id="fdot_logo" style="height: 48px; float:left"/>
+			</a>
+		<div class="collapse navbar-collapse" id="bdNavbar">
+		<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+			<li class="nav-item col-6 col-md-auto">
+			<a class="nav-link p-3 active" aria-current="true"><b>2045_CA  Tampa Bay Regional Planning Model </b></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+			<li class="nav-item col-6 col-md-auto">
+				<a href="https://bcceng.com/" target="_blank"><img src="images/bcc_logo.png" id="bcc_logo" style="height: 48px;"/></a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+  <a class="contactlink" id="contactlink" aria-current="true" href="https://bccorlando.wixsite.com/tbrpm" target="_blank" style="color: white;"><b>Feedback</b></a>&nbsp
+	</header>
+  	    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	  <div class="trips" id="transit_trips">
+    <h4 style="padding: 10px 0;color:black"> &nbsp&nbspTransit Summary by Mode </h4>
+    <canvas id="trips" style="width:100%;max-width:1200px"></canvas>
+    </div>
+ 	  <div class="miles" id="transit_miles">
+    <canvas id="miles" style="width:100%;max-width:1200px"></canvas>
+    </div>
+	  <div class="hours" id="transit_hours">
+    <canvas id="hours" style="width:100%;max-width:1200px"></canvas>
+    </div>
+    <div class="trips1" id="transit_trips1">
+    <h4 style="padding: 10px 0;color:black"> &nbsp&nbspTransit Summary by Operator </h4>
+    <canvas id="trips1" style="width:100%;max-width:1200px"></canvas>
+    </div>
+ 	  <div class="miles1" id="transit_miles1">
+    <canvas id="miles1" style="width:100%;max-width:1200px"></canvas>
+    </div>
+	  <div class="hours1" id="transit_hours1">
+    <canvas id="hours1" style="width:100%;max-width:1200px"></canvas>
+    </div>
+<script>
+var index_mode=['10','11','12','15','17','20','21','22','27','30','31','40'];
+var xValues = ['29710','159','31334','0','500','31152','369','2437','47','5130','1922','517'];
+var yValues=['38743','2950','27463','9','1106','19953','1390','1137','39','4504','1662','383'];
+
+new Chart(document.getElementById("trips"), {
+    type: 'bar',
+    data: {
+      labels: index_mode,
+      datasets: [
+        {
+          label: "Peak",
+          backgroundColor: "#92B6C7",
+          data: yValues
+        }, {
+          label: "Off-Peak",
+          backgroundColor: "#F3A27C",
+          data: xValues
+        }
+      ]
+    },
+    options: {
+      plugins:{
+      title: {
+        display: true,
+        text: 'Passenger Trips by Mode'
+      }
+    }
+    }
+});
+
+var index_mode=['10','11','12','15','17','20','21','22','27','30','31','40'];
+var xValues = ['98290','1044','125074','0','588','134616','2808','6484','191','21575','10565','2321'];
+var yValues=['137847','34718','136289','24','1214','88015','11629','3331','167','17743','8272','1728'];
+
+new Chart(document.getElementById("miles"), {
+    type: 'bar',
+    data: {
+      labels: index_mode,
+  datasets: [
+        {
+          label: "Peak",
+          backgroundColor: "#92B6C7",
+          data: yValues
+        }, {
+          label: "Off-Peak",
+          backgroundColor: "#F3A27C",
+          data: xValues
+        }
+      ]
+    },
+    options: {
+      plugins:{
+      title: {
+        display: true,
+        text: 'Passenger Miles by Mode'
+      }
+    }
+    }
+});
+
+
+var index_mode=['10','11','12','15','17','20','21','22','27','30','31','40'];
+var xValues = ['6318','34','9631','0','65','7459','118','452','8','909','381','111'];
+var yValues=['8810','1154','9536','0','131','4859','459','233','7','743','290','81'];
+
+new Chart(document.getElementById("hours"), {
+    type: 'bar',
+    data: {
+      labels: index_mode,
+  datasets: [
+        {
+          label: "Peak",
+          backgroundColor: "#92B6C7",
+          data: yValues
+        }, {
+          label: "Off-Peak",
+          backgroundColor: "#F3A27C",
+          data: xValues
+        }
+      ]
+    },
+    options: {
+      plugins:{
+      title: {
+        display: true,
+        text: 'Passenger Hours by Mode'
+      }
+    }
+    }
+});
+
+var index_mode=['10','20','30','40','50','60'];
+var xValues = ['61129','33784','7052','419','98','795'];
+var yValues=['69676','22246','6166','312','71','868'];
+
+new Chart(document.getElementById("trips1"), {
+    type: 'bar',
+    data: {
+      labels: index_mode,
+   datasets: [
+        {
+          label: "Peak",
+          backgroundColor: "#92B6C7",
+          data: yValues
+        }, {
+          label: "Off-Peak",
+          backgroundColor: "#F3A27C",
+          data: xValues
+        }
+      ]
+    },
+    options: {
+      plugins:{
+      title: {
+        display: true,
+        text: 'Passenger Trips by Operator'
+      }
+    }
+    }
+});
+
+var index_mode=['10','20','30','40','50','60'];
+var xValues = ['214314','141510','32141','1477','843','13273'];
+var yValues=['300114','99991','26015','1036','692','13133'];
+
+new Chart(document.getElementById("miles1"), {
+    type: 'bar',
+    data: {
+      labels: index_mode,
+  datasets: [
+        {
+          label: "Peak",
+          backgroundColor: "#92B6C7",
+          data: yValues
+        }, {
+          label: "Off-Peak",
+          backgroundColor: "#F3A27C",
+          data: xValues
+        }
+      ]
+    },
+    options: {
+      plugins:{
+      title: {
+        display: true,
+        text: 'Passenger Miles by Operator'
+      }
+    }
+    }
+});
+
+
+var index_mode=['10','20','30','40','50','60'];
+var xValues = ['15805','7967','1291','75','35','315'];
+var yValues=['19391','5478','1034','52','29','324'];
+
+new Chart(document.getElementById("hours1"), {
+    type: 'bar',
+    data: {
+      labels: index_mode,
+  datasets: [
+        {
+          label: "Peak",
+          backgroundColor: "#92B6C7",
+          data: yValues
+        }, {
+          label: "Off-Peak",
+          backgroundColor: "#F3A27C",
+          data: xValues
+        }
+      ]
+    },
+    options: {
+      plugins:{
+      title: {
+        display: true,
+        text: 'Passenger Hours by Operator'
+      }
+    }
+    }
+});
+</script>
+
+</body>
+
+   <div class="transit_mode" id="tlf_op1">
+    <h4 style="padding: 10px 0;color:black">
+    Transit Summary by Mode</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Mode</th>
+      <th>Description</th>
+      <th>Passenger Trips(PK)</th>
+      <th>Pass.Mi(PK)</th>
+      <th>Pass.Hr(PK)</th>
+      <th>Passenger Trips(OP)</th>
+      <th>Pass.Mi(OP)</th>
+      <th>Pass.Hr(OP)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>HART local buses Non-Premium</td>
+      <td>38,743</td>
+      <td>137,848</td>
+      <td>8,810</td>
+      <td>29,710</td>
+      <td>98,290</td>
+      <td>6,319</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>HART express bus Non-Premium</td>
+      <td>2,950</td>
+      <td>34,719</td>
+      <td>1,155</td>
+      <td>159</td>
+      <td>1,044</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>HART premium bus / in-street BRT Premium</td>
+      <td>27,463</td>
+      <td>136,290</td>
+      <td>9,537</td>
+      <td>31,334</td>
+      <td>125,074</td>
+      <td>9,632</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>HART light rail Premium</td>
+      <td>9</td>
+      <td>24</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>HART project circulator Premium</td>
+      <td>1,106</td>
+      <td>1,215</td>
+      <td>132</td>
+      <td>500</td>
+      <td>589</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>PSTA local bus Non-Premium</td>
+      <td>19,953</td>
+      <td>88,016</td>
+      <td>4,859</td>
+      <td>31,152</td>
+      <td>134,616</td>
+      <td>7,459</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>PSTA express bus Non-Premium</td>
+      <td>1,390</td>
+      <td>11,630</td>
+      <td>459</td>
+      <td>369</td>
+      <td>2,809</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>PSTA premium bus / in-street BRT Premium</td>
+      <td>1,137</td>
+      <td>3,331</td>
+      <td>234</td>
+      <td>2,437</td>
+      <td>6,484</td>
+      <td>452</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>PSTA project circulator Premium</td>
+      <td>39</td>
+      <td>168</td>
+      <td>7</td>
+      <td>47</td>
+      <td>192</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>PCPT local bus Non-Premium</td>
+      <td>4,504</td>
+      <td>17,743</td>
+      <td>743</td>
+      <td>5,130</td>
+      <td>21,576</td>
+      <td>910</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>PCPT express bus Non-Premium</td>
+      <td>1,662</td>
+      <td>8,273</td>
+      <td>291</td>
+      <td>1,922</td>
+      <td>10,566</td>
+      <td>381</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>TheBUS/CCT local bus Non-Premium</td>
+      <td>383</td>
+      <td>1,729</td>
+      <td>82</td>
+      <td>517</td>
+      <td>2,321</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <td>All Modes</td>
+      <td></td>
+      <td>99,339</td>
+      <td>440,985</td>
+      <td>26,310</td>
+      <td>103,277</td>
+      <td>403,561</td>
+      <td>25,491</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+   <div class="transit_operator" id="tlf_pk">
+    <h4 style="padding: 10px 0;color:black">
+    Transit Summary by Operator</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Passenger Trips(PK)</th>
+      <th>Pass.Mi(PK)</th>
+      <th>Pass.Hr(PK)</th>
+      <th>Passenger Trips(OP)</th>
+      <th>Pass.Mi(OP)</th>
+      <th>Pass.Hr(OP)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>Hillsborough Area Regional Transit (HART)</td>
+      <td>69,676</td>
+      <td>300,115</td>
+      <td>19,391</td>
+      <td>61,129</td>
+      <td>214,315</td>
+      <td>15,806</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Pinellas Suncoast Transit Authority (PSTA)</td>
+      <td>22,246</td>
+      <td>99,991</td>
+      <td>5,478</td>
+      <td>33,784</td>
+      <td>141,510</td>
+      <td>7,967</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Pasco County Public Transportation (PCPT)</td>
+      <td>6,166</td>
+      <td>26,016</td>
+      <td>1,034</td>
+      <td>7,052</td>
+      <td>32,141</td>
+      <td>1,291</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Hernando County TheBUS (TheBUS)</td>
+      <td>312</td>
+      <td>1,036</td>
+      <td>53</td>
+      <td>419</td>
+      <td>1,477</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Citrus County Transit (CCT)</td>
+      <td>71</td>
+      <td>692</td>
+      <td>29</td>
+      <td>98</td>
+      <td>844</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Tampa Bay Area Regional Transit Authority (TBARTA)</td>
+      <td>868</td>
+      <td>13,134</td>
+      <td>324</td>
+      <td>795</td>
+      <td>13,273</td>
+      <td>316</td>
+    </tr>
+    <tr>
+      <td>All Operators</td>
+      <td></td>
+      <td>99,339</td>
+      <td>440,985</td>
+      <td>26,310</td>
+      <td>103,277</td>
+      <td>403,561</td>
+      <td>25,491</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        </body>
+        </html>
+        

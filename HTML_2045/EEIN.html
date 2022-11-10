@@ -1,0 +1,748 @@
+
+    <html>
+	
+<head>
+
+
+<title>2045_CA  Tampa Bay Regional Planning Model </title>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.98.0">
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--Load jQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+
+
+<!-- SEARCH CONTROL -->
+	<link rel="stylesheet" href="src/leaflet-search.css"/>
+
+<!-- Chart.js -->	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+
+	<!-- Jquery JS -->
+	<script src="http://code.jqiery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<!-- Leaflet JS -->
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		  
+		   
+	
+	<link rel="stylesheet" href="leaflet/leaflet.css"/>
+	<script src="leaflet/leaflet.js"></script> 
+	<script src="js/l.control.geosearch.js"></script>
+	<script src="js/l.geosearch.provider.google.js"></script>
+    <link rel="stylesheet" href="css/l.geosearch.css"/>
+
+
+
+<!-- Main Style -->
+    <link rel="stylesheet" href="css/summary.css"/>
+
+
+ </head>
+    <style>
+ 
+    h2{
+font-size:15px
+
+    }
+    
+    thead {color: black;}
+    tbody {color: black;}
+    tfoot {color: red;}
+    table{width:800px;height:200px;}
+    table, th, td {
+      border: 1px solid black;
+      text-align:center;
+      font-size: 14px;
+      height:10px;
+      border-collapse: collapse;
+    }
+td:nth-child(1) {
+    text-align:center;
+}
+td:nth-child(2) {
+     text-align:center;
+}
+td:nth-child(3) {
+         text-align:right;
+
+}
+td:nth-child(4) {
+         text-align:right;
+
+}
+td:nth-child(5) {
+         text-align:right;
+
+}
+
+
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      * {
+  box-sizing: border-box;
+}
+
+.box {
+  position:absolute;
+  top:55px;
+  width: 45;
+  height:100%;
+}
+.box_1 {
+  position:absolute;
+  top:630px;
+  left:40px;
+  width: 580px;
+  height:30;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    </style>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <body>
+
+
+<main class="d-flex flex-nowrap" style="position:relative">
+<div class="flex-shrink-0 p-3" style="width: 230px;background-color:#F2F2F2">
+    <a href="#" class="d-flex align-items-left pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <span class="fs-4 fw-semibold" style="color:#6C8D9C;font-weight:bold">Summary Index</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li><a href="Home.html" class="btn btn-toggle d-inline-flex align-items-center rounded border-0" aria-expanded="false">Home</a></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#EE-collapse" aria-expanded="true">
+         External
+        </button>
+        <div class="collapse show" id="EE-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="EEIN.html" class="link-dark d-inline-flex text-decoration-none rounded" style="background-color:ADCEDE" >Input EE Trip</a></li>
+            <li><a href="EEOUT.html" class="link-dark d-inline-flex text-decoration-none rounded" ">Output EE Trip</a></li>
+          </ul>
+        </div>
+      </li>
+           <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#generation-collapse" aria-expanded="false">
+          Trip Generation
+        </button>
+        <div class="collapse " id="generation-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="GEN_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Production & Attraction</a></li>
+            <li><a href="GEN_INPUT.html" class="link-dark d-inline-flex text-decoration-none rounded"  >Trip Generation Statistics</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Trip Distribution
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Triplength.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Length Overall</a></li>
+            <li><a href="Triplength_PK_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >PK Trip Length by County </a></li>
+            <li><a href="Triplength_OP_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >OP Trip Length by County </a></li>
+             <li><a href="DIST_Intra.html" class="link-dark d-inline-flex text-decoration-none rounded" >Intrazonal Trips Overall</a></li>
+             <li><a href="DIST_intra_County_PK.html" class="link-dark d-inline-flex text-decoration-none rounded" >PK Intrazonal Trips by County </a></li>
+             <li><a href="DIST_intra_County_OP.html" class="link-dark d-inline-flex text-decoration-none rounded" >OP Intrazonal Trips by County </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Mode Choice
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="MODE_overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Model Choice Overall</a></li>
+            <li><a href="MODE_HWY.html" class="link-dark d-inline-flex text-decoration-none rounded" >Highway Trips</a></li>
+            <li><a href="MODE_transit.html" class="link-dark d-inline-flex text-decoration-none rounded"">Transit Trips</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Transit-collapse" aria-expanded="false">
+          Transit Assignment
+        </button>
+        <div class="collapse" id="Transit-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="TRANSIT_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Transit Summary</a></li>
+  
+          </ul>
+        </div>
+      </li>
+       
+        <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Analysis-collapse" aria-expanded="false">
+         Highway Analysis
+        </button>
+        <div class="collapse" id="Analysis-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Analysis_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Volume/Capacity</a></li>
+          </ul>
+        </div>
+      </li></ul>
+  </div>
+
+<div class="map_gen1" id="map_gen"> </div>
+
+
+
+    <header class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+			<a href="https://tdaappsprod.dot.state.fl.us/fto/" target="_blank">
+				<img src="images/fdot_logo_white.png" id="fdot_logo" style="height: 48px; float:left"/>
+			</a>
+		<div class="collapse navbar-collapse" id="bdNavbar">
+		<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+			<li class="nav-item col-6 col-md-auto">
+			<a class="nav-link p-3 active" aria-current="true"><b>2045_CA  Tampa Bay Regional Planning Model </b></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+			<li class="nav-item col-6 col-md-auto">
+				<a href="https://bcceng.com/" target="_blank"><img src="images/bcc_logo.png" id="bcc_logo" style="height: 48px;"/></a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+  <a class="contactlink" id="contactlink" aria-current="true" href="https://bccorlando.wixsite.com/tbrpm" target="_blank" style="color: white;"><b>Feedback</b></a>&nbsp
+	</header>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<div class="groupbar" id="barchart_PANDAS">
+    <canvas id="bar-chart-grouped" style="width:100%;max-width:1200px"></canvas>
+    </div>
+
+
+<script>
+    
+    var map = L.map('map_gen').setView([28.276140, -82.585263], 9);
+	
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+	subdomains: 'abcd',
+	maxZoom: 15
+    }).addTo(map);
+
+var ee1 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+     iconSize: [10, 10],
+});
+L.marker([29.032961920072500,-82.672099361390000],{icon: ee1}).addTo(map).bindPopup("3001:<br>EEPCT(%):6<br>EE Trips:450").openPopup(); 
+
+var ee2 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([29.053050118669,-82.4606447795446],{icon: ee2}).addTo(map).bindPopup("3002:<br>EEPCT(%):5<br>EE Trips:980").openPopup(); 
+
+var ee3 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.9944241662103,-82.3443235808669],{icon: ee3}).addTo(map).bindPopup("3003:<br>EEPCT(%):6<br>EE Trips:852").openPopup(); 
+
+var ee4 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.8522510085716,-82.210915875927],{icon: ee4}).addTo(map).bindPopup("3004:<br>EEPCT(%):6<br>EE Trips:612").openPopup(); 
+
+var ee5 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.7212312598038,-82.2313952490694],{icon: ee5}).addTo(map).bindPopup("3005:<br>EEPCT(%):6<br>EE Trips:246").openPopup(); 
+
+var ee6 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.6461413864087,-82.2467193051508],{icon: ee6}).addTo(map).bindPopup("3006:<br>EEPCT(%):10<br>EE Trips:230").openPopup(); 
+
+var ee7 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.5864685712091,-82.2112819151168],{icon: ee7}).addTo(map).bindPopup("3007:<br>EEPCT(%):28<br>EE Trips:10500").openPopup(); 
+
+var ee8 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.580555230734,-82.1527102613154],{icon: ee8}).addTo(map).bindPopup("3008:<br>EEPCT(%):10<br>EE Trips:390").openPopup(); 
+
+var ee9 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.5396428598567,-82.0978397135543],{icon: ee9}).addTo(map).bindPopup("3009:<br>EEPCT(%):10<br>EE Trips:580").openPopup(); 	
+	 
+	var ee10 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.2468073808421,-82.0590563307505],{icon: ee10}).addTo(map).bindPopup("3010:<br>EEPCT(%):10<br>EE Trips:790").openPopup(); 	
+
+var ee11 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+     iconSize: [10, 10],
+});
+L.marker([28.0812363639704,-82.0444369051277],{icon: ee11}).addTo(map).bindPopup("3011:<br>EEPCT(%):7<br>EE Trips:574").openPopup(); 
+
+var ee12 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.0369139174343,-82.04291310574],{icon: ee12}).addTo(map).bindPopup("3012:<br>EEPCT(%):19<br>EE Trips:23845").openPopup(); 
+
+var ee13 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.0295772847179,-82.0450754147279],{icon: ee13}).addTo(map).bindPopup("3013:<br>EEPCT(%):7<br>EE Trips:749").openPopup(); 
+
+var ee14 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.0282124050074,-82.0448184319364],{icon: ee14}).addTo(map).bindPopup("3014:<br>EEPCT(%):7<br>EE Trips:196").openPopup(); 
+
+var ee15 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.9965111637067,-82.0444333505355],{icon: ee15}).addTo(map).bindPopup("3015:<br>EEPCT(%):7<br>EE Trips:525").openPopup(); 
+
+var ee16 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.9819413341142,-82.045192436477],{icon: ee16}).addTo(map).bindPopup("3016:<br>EEPCT(%):7<br>EE Trips:101.5").openPopup(); 
+
+var ee17 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.9708087140717,-82.0454639335732],{icon: ee17}).addTo(map).bindPopup("3017:<br>EEPCT(%):7<br>EE Trips:336").openPopup(); 
+
+var ee18 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.9527999970905,-82.0460434241566],{icon: ee18}).addTo(map).bindPopup("3018:<br>EEPCT(%):7<br>EE Trips:679").openPopup(); 
+
+var ee19 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.938265370943,-82.0453103216068],{icon: ee19}).addTo(map).bindPopup("3019:<br>EEPCT(%):7<br>EE Trips:1078").openPopup(); 	
+	 
+	var ee20 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.9269687914251,-82.0452498105209],{icon: ee20}).addTo(map).bindPopup("3020:<br>EEPCT(%):10<br>EE Trips:1820").openPopup(); 	
+
+var ee21 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+     iconSize: [10, 10],
+});
+L.marker([27.8781286778852,-82.0465514070395],{icon: ee21}).addTo(map).bindPopup("3021:<br>EEPCT(%):7<br>EE Trips:154").openPopup(); 
+
+var ee22 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.8506836319937,-82.0457417950221],{icon: ee22}).addTo(map).bindPopup("3022:<br>EEPCT(%):7<br>EE Trips:434").openPopup(); 
+
+var ee23 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.7047447308595,-82.0465762360159],{icon: ee23}).addTo(map).bindPopup("3023:<br>EEPCT(%):7<br>EE Trips:136.5").openPopup(); 
+
+var ee24 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.6391976932898,-82.1465730710814],{icon: ee24}).addTo(map).bindPopup("3024:<br>EEPCT(%):7<br>EE Trips:161").openPopup(); 
+
+var ee25 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.639903383321,-82.2966029383338],{icon: ee25}).addTo(map).bindPopup("3025:<br>EEPCT(%):7<br>EE Trips:38.5").openPopup(); 
+
+var ee26 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.5819405073809,-82.4304527073505],{icon: ee26}).addTo(map).bindPopup("3026:<br>EEPCT(%):7<br>EE Trips:574").openPopup(); 
+
+var ee27 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.5549143853512,-82.5118307781184],{icon: ee27}).addTo(map).bindPopup("3027:<br>EEPCT(%):20<br>EE Trips:17700").openPopup(); 
+
+var ee28 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.554575584914,-82.5594655695978],{icon: ee28}).addTo(map).bindPopup("3028:<br>EEPCT(%):10<br>EE Trips:3000").openPopup(); 
+
+var ee29 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.5550224007657,-82.5647027251695],{icon: ee29}).addTo(map).bindPopup("3029:<br>EEPCT(%):10<br>EE Trips:2250").openPopup(); 	
+	 
+	var ee30 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([28.0404849249678,-82.0432026996699],{icon: ee30}).addTo(map).bindPopup("3030:<br>EEPCT(%):7<br>EE Trips:35").openPopup(); 	
+	  
+    	var ee31 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.5578305508582,-82.5480797322337],{icon: ee31}).addTo(map).bindPopup("3031:<br>EEPCT(%):0<br>EE Trips:0").openPopup(); 	
+
+	var ee32 = L.icon({
+  	iconUrl: 'images/marker-icon.png',
+      iconSize: [10, 10],
+});
+L.marker([27.5577230955496,-82.5280392641389],{icon: ee32}).addTo(map).bindPopup("3032:<br>EEPCT(%):0<br>EE Trips:0").openPopup(); 	
+	 
+</script>
+
+
+
+
+
+
+</body>
+
+
+   <div class="eetrips" id="auto">
+    <h4 style="padding: 10px 0;color:black;font-size:20, width: 500px"><span>
+    ZDATA4 Total External Trip Ends</span></h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Zone</th>
+      <th>Description</th>
+      <th>Trip End Totals</th>
+      <th>Percent EE</th>
+      <th>EE Trip Ends</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3001</td>
+      <td>US 19 @ Citrus / Levy County Line</td>
+      <td>15,000</td>
+      <td>6.0%</td>
+      <td>900</td>
+    </tr>
+    <tr>
+      <td>3002</td>
+      <td>US 41 @ Citrus / Marion County Line</td>
+      <td>32,500</td>
+      <td>5.0%</td>
+      <td>1,625</td>
+    </tr>
+    <tr>
+      <td>3003</td>
+      <td>SR 200 @ Citrus / Marion County Line</td>
+      <td>31,000</td>
+      <td>6.0%</td>
+      <td>1,860</td>
+    </tr>
+    <tr>
+      <td>3004</td>
+      <td>SR 44 @ Citrus / Sumter County Line</td>
+      <td>26,000</td>
+      <td>6.0%</td>
+      <td>1,560</td>
+    </tr>
+    <tr>
+      <td>3005</td>
+      <td>CR 48 @ Citrus / Sumter County Line</td>
+      <td>7,600</td>
+      <td>6.0%</td>
+      <td>456</td>
+    </tr>
+    <tr>
+      <td>3006</td>
+      <td>CR 476 @ Hernando / Sumter County Line</td>
+      <td>3,600</td>
+      <td>10.0%</td>
+      <td>360</td>
+    </tr>
+    <tr>
+      <td>3007</td>
+      <td>I-75 @ Hernando / Sumter County Line</td>
+      <td>90,000</td>
+      <td>28.0%</td>
+      <td>25,200</td>
+    </tr>
+    <tr>
+      <td>3008</td>
+      <td>US 301 @ Hernando / Sumter County Line</td>
+      <td>6,200</td>
+      <td>10.0%</td>
+      <td>620</td>
+    </tr>
+    <tr>
+      <td>3009</td>
+      <td>SR 50 @ Hernando / Sumter County Line</td>
+      <td>13,000</td>
+      <td>10.0%</td>
+      <td>1,300</td>
+    </tr>
+    <tr>
+      <td>3010</td>
+      <td>US 98 @ Pasco / Polk County Line (S of CR 54)</td>
+      <td>19,500</td>
+      <td>10.0%</td>
+      <td>1,950</td>
+    </tr>
+    <tr>
+      <td>3011</td>
+      <td>CR 582 / Knights-Griffin Rd @ Hillsborough / Polk</td>
+      <td>12,000</td>
+      <td>7.0%</td>
+      <td>840</td>
+    </tr>
+    <tr>
+      <td>3012</td>
+      <td>I-4 @ Hillsborough / Polk CL (W of CR 570 Polk Pk)</td>
+      <td>220,000</td>
+      <td>19.0%</td>
+      <td>41,800</td>
+    </tr>
+    <tr>
+      <td>3013</td>
+      <td>US 92 @ Hillsborough / Polk County Line</td>
+      <td>32,300</td>
+      <td>7.0%</td>
+      <td>2,261</td>
+    </tr>
+    <tr>
+      <td>3014</td>
+      <td>CR 542 / Allen K Breed Hwy @ Hillsborough / Polk</td>
+      <td>7,900</td>
+      <td>7.0%</td>
+      <td>553</td>
+    </tr>
+    <tr>
+      <td>3015</td>
+      <td>Rice Rd / Drane Field Rd @ Hillsborough / Polk</td>
+      <td>12,500</td>
+      <td>7.0%</td>
+      <td>875</td>
+    </tr>
+    <tr>
+      <td>3016</td>
+      <td>Medulla Rd @ Hillsborough / Polk County Line</td>
+      <td>4,500</td>
+      <td>7.0%</td>
+      <td>315</td>
+    </tr>
+    <tr>
+      <td>3017</td>
+      <td>W Pipkin Rd @ Hillsborough / Polk County Line</td>
+      <td>12,500</td>
+      <td>7.0%</td>
+      <td>875</td>
+    </tr>
+    <tr>
+      <td>3018</td>
+      <td>Ewell Rd / Coronet Rd @ Hillsborough / Polk County</td>
+      <td>16,500</td>
+      <td>7.0%</td>
+      <td>1,155</td>
+    </tr>
+    <tr>
+      <td>3019</td>
+      <td>Shepherd Rd @ Hillsborough / Polk County Line</td>
+      <td>22,000</td>
+      <td>7.0%</td>
+      <td>1,540</td>
+    </tr>
+    <tr>
+      <td>3020</td>
+      <td>SR 60 E of County Line Rd @ Hillsborough / Polk</td>
+      <td>37,000</td>
+      <td>10.0%</td>
+      <td>3,700</td>
+    </tr>
+    <tr>
+      <td>3021</td>
+      <td>CR 676 / Nichols Rd @ Hillsborough / Polk County</td>
+      <td>2,200</td>
+      <td>7.0%</td>
+      <td>154</td>
+    </tr>
+    <tr>
+      <td>3022</td>
+      <td>CR 640 / Lithia Pinecrest Rd @ Hillsborough / Polk</td>
+      <td>7,400</td>
+      <td>7.0%</td>
+      <td>518</td>
+    </tr>
+    <tr>
+      <td>3023</td>
+      <td>SR 674 @ Hillsborough / Polk County Line</td>
+      <td>3,400</td>
+      <td>7.0%</td>
+      <td>238</td>
+    </tr>
+    <tr>
+      <td>3024</td>
+      <td>CR 39 / Kickliter Rd @ Hillsborough / Manatee</td>
+      <td>2,700</td>
+      <td>7.0%</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>3025</td>
+      <td>CR 579 / Saffold Rd @ Hillsborough / Manatee</td>
+      <td>700</td>
+      <td>7.0%</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>3026</td>
+      <td>US 301 S of Moccasin Wallow Rd / SR 62 Manatee</td>
+      <td>12,500</td>
+      <td>7.0%</td>
+      <td>875</td>
+    </tr>
+    <tr>
+      <td>3027</td>
+      <td>I-75 S of I-275 (S of Manatee County Line)</td>
+      <td>156,000</td>
+      <td>20.0%</td>
+      <td>31,200</td>
+    </tr>
+    <tr>
+      <td>3028</td>
+      <td>US 41 S of I-275 (S of Manatee County Line)</td>
+      <td>53,500</td>
+      <td>10.0%</td>
+      <td>5,350</td>
+    </tr>
+    <tr>
+      <td>3029</td>
+      <td>US 19 S of I-275 (S of Manatee County Line)</td>
+      <td>37,500</td>
+      <td>10.0%</td>
+      <td>3,750</td>
+    </tr>
+    <tr>
+      <td>3030</td>
+      <td>Swindell Rd at Hillsborough/Polk Countyline</td>
+      <td>1,400</td>
+      <td>7.0%</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <td>3031</td>
+      <td>16th Ave Manatee</td>
+      <td>1,700</td>
+      <td>0.0%</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3032</td>
+      <td>30th Ave Manatee</td>
+      <td>11,000</td>
+      <td>20.0%</td>
+      <td>2,200</td>
+    </tr>
+    <tr>
+      <td>External Totals</td>
+      <td></td>
+      <td>911,600</td>
+      <td>14.7%</td>
+      <td>134,366</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        </body>
+        </html>
+        

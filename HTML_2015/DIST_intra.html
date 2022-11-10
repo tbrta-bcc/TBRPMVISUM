@@ -1,0 +1,585 @@
+
+<html>
+	
+<head>
+
+
+<title>2015_Base  Tampa Bay Regional Planning Model </title>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.98.0">
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--Load jQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+
+
+<!-- SEARCH CONTROL -->
+	<link rel="stylesheet" href="src/leaflet-search.css"/>
+
+<!-- Chart.js -->	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
+
+	<!-- Jquery JS -->
+	<script src="http://code.jqiery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<!-- Leaflet JS -->
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		  
+		   
+	
+	<link rel="stylesheet" href="leaflet/leaflet.css"/>
+	<script src="leaflet/leaflet.js"></script> 
+	<script src="js/l.control.geosearch.js"></script>
+	<script src="js/l.geosearch.provider.google.js"></script>
+    <link rel="stylesheet" href="css/l.geosearch.css"/>
+
+
+
+<!-- Main Style -->
+    <link rel="stylesheet" href="css/summary.css"/>
+
+
+ </head>
+    <style>
+ 
+    
+    thead {color: black;}
+    tbody {color: black;}
+    tfoot {color: red;}
+    table{width:450px;height:200px;}
+    th, td {
+      border: 1px solid black;
+      text-align: center;
+      width: 35px;
+      font-size: 12px;
+      height:10px
+      padding:10px;
+    }
+
+    
+tr {
+  height: 25px;
+  width:120%;
+}
+
+td:nth-child(2) {
+         text-align:right;
+}
+
+td:nth-child(3) {
+         text-align:right;
+}
+
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      * {
+  box-sizing: border-box;
+}
+
+.box {
+  position:absolute;
+  top:55px;
+  width: 45;
+  height:100%;
+}
+.box_1 {
+  position:absolute;
+  top:630px;
+  left:40px;
+  width: 580px;
+  height:30;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    </style>
+
+
+
+    <body>
+
+
+
+<main class="d-flex flex-nowrap" style="position:relative">
+<div class="flex-shrink-0 p-3" style="width: 230px;background-color:#F2F2F2">
+    <a href="#" class="d-flex align-items-left pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <span class="fs-4 fw-semibold" style="color:#6C8D9C;font-weight:bold">Summary Index</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li><a href="Home.html" class="btn btn-toggle d-inline-flex align-items-center rounded border-0" aria-expanded="false">Home</a></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#EE-collapse" aria-expanded="false">
+         External
+        </button>
+        <div class="collapse" id="EE-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="EEIN.html" class="link-dark d-inline-flex text-decoration-none rounded">Input EE Trips</a></li>
+            <li><a href="EEOUT.html" class="link-dark d-inline-flex text-decoration-none rounded">Output EE Trips</a></li>
+          </ul>
+        </div>
+      </li>
+           <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#generation-collapse" aria-expanded="false">
+          Trip Generation
+        </button>
+        <div class="collapse " id="generation-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="GEN_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Production & Attraction</a></li>
+            <li><a href="GEN_INPUT.html" class="link-dark d-inline-flex text-decoration-none rounded"  >Trip Generation Statistics</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+          Trip Distribution
+        </button>
+        <div class="collapse show" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Triplength.html" class="link-dark d-inline-flex text-decoration-none rounded" >Trip Length Overall</a></li>
+            <li><a href="Triplength_PK_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >PK Trip Length by County </a></li>
+            <li><a href="Triplength_OP_County.html" class="link-dark d-inline-flex text-decoration-none rounded"  >OP Trip Length by County </a></li>
+             <li><a href="DIST_Intra.html" class="link-dark d-inline-flex text-decoration-none rounded" style="background-color:ADCEDE">Intrazonal Trips Overall</a></li>
+             <li><a href="DIST_intra_County_PK.html" class="link-dark d-inline-flex text-decoration-none rounded" >PK Intrazonal Trips by County </a></li>
+             <li><a href="DIST_intra_County_OP.html" class="link-dark d-inline-flex text-decoration-none rounded" >OP Intrazonal Trips by County </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Mode Choice
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="MODE_overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Model Choice Overall</a></li>
+            <li><a href="MODE_HWY.html" class="link-dark d-inline-flex text-decoration-none rounded" >Highway Trips</a></li>
+            <li><a href="MODE_transit.html" class="link-dark d-inline-flex text-decoration-none rounded"">Transit Trips</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Transit-collapse" aria-expanded="false">
+          Transit Assignment
+        </button>
+        <div class="collapse" id="Transit-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="TRANSIT_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Transit Summary</a></li>
+  
+          </ul>
+        </div>
+      </li>
+            <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Analysis-collapse" aria-expanded="false">
+ Highway Analysis
+        </button>
+        <div class="collapse" id="Analysis-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Analysis_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded" >Volume/Capacity</a></li>
+            
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Highway-collapse" aria-expanded="false">
+         Highway Validation
+        </button>
+        <div class="collapse" id="Highway-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="Validation_Overall.html" class="link-dark d-inline-flex text-decoration-none rounded">VOL/CNT & RMSE</a></li>
+            <li><a href="highway_Corridor.html" class="link-dark d-inline-flex text-decoration-none rounded">VOL/CNT by Corridor</a></li>
+            <li><a href="highway_FACL.html" class="link-dark d-inline-flex text-decoration-none rounded">VOL/CNT by FT & AT</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+    <header class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+		<nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+			<a href="https://tdaappsprod.dot.state.fl.us/fto/" target="_blank">
+				<img src="images/fdot_logo_white.png" id="fdot_logo" style="height: 48px; float:left"/>
+			</a>
+		<div class="collapse navbar-collapse" id="bdNavbar">
+		<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+			<li class="nav-item col-6 col-md-auto">
+			<a class="nav-link p-3 active" aria-current="true"><b>2015_Base  Tampa Bay Regional Planning Model </b></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+			<li class="nav-item col-6 col-md-auto">
+				<a href="https://bcceng.com/" target="_blank"><img src="images/bcc_logo.png" id="bcc_logo" style="height: 48px;"/></a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+  <a class="contactlink" id="contactlink" aria-current="true" href="https://bccorlando.wixsite.com/tbrpm" target="_blank" style="color: white;"><b>Feedback</b></a>&nbsp
+	</header>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<div class="stack_op" id="stack_op1">
+     <h4 style="padding: 10px 0;color:SteelBlue">  </h4>
+    <canvas id="stack_op" style="width:100%;max-width:1200px"></canvas>
+    </div>
+    	<div class="stack_pk" id="stack_pk1">
+      <h4 style="padding: 10px 0;color:SteelBlue">  </h4>
+    <canvas id="stack_pk" style="width:100%;max-width:1200px"></canvas>
+    </div>
+<script>
+
+var xValues = ['12174.0', '51057.0', '141817.0', '36894.0', '72651.0', '11707.0', '46252.0', '3242.0', '729.0', '825.0', '0.0', '145.0', '4127.0', '381620.0'];
+var yValues=['918519.0', '720463.0', '1901988.0', '429972.0', '1057021.0', '360511.0', '1200369.0', '112921.0', '56127.0', '30043.0', '115820.0', '42779.0', '134015.0'];
+
+new Chart(document.getElementById("stack_op"), {
+    type: 'bar',
+    data: {
+      labels: ["HBW","HBSH","HBSR","HBSC","HBO","NHBW","NHBO","LTRK","HTRK","TAXI","EI","AIRP","COL"],
+      datasets: [
+        {
+          label: "Intrazonal Trips",
+          backgroundColor: "#92B6C7",
+          data: xValues
+        }, 
+        {
+          label: "Total Trips",
+          backgroundColor: "#F3A27C",
+          data: yValues
+        }
+      ]
+    },
+    options: {
+        plugins:{
+          title: {
+          display: true,
+          text: 'Off-Peak Intrazonal Trips',
+          font: {
+            size:16,
+            weight:'bold'
+        }
+      }
+      },
+         scales:{
+          xAxes:[{stacked:true,}],
+          yAxes:[{stacked:true,}]
+      }
+    }
+});
+
+</script>
+
+<script>
+
+var xValues1 = ['20945.0', '25230.0', '62668.0', '60768.0', '41840.0', '10609.0', '31678.0', '2857.0', '392.0', '917.0', '0.0', '71.0', '4491.0', '262466.0'];
+var yValues1 =['1192534.0', '319767.0', '917025.0', '748356.0', '907337.0', '233412.0', '600094.0', '72317.0', '25858.0', '24581.0', '45940.0', '20871.0', '144198.0'];
+
+
+new Chart(document.getElementById("stack_pk"), {
+    type: 'bar',
+    data: {
+      labels: ["HBW","HBSH","HBSR","HBSC","HBO","NHBW","NHBO","LTRK","HTRK","TAXI","EI","AIRP","COL"],
+      datasets: [
+        {
+          label: "Intrazonal Trips",
+          backgroundColor: "#92B6C7",
+          data: xValues1
+        }, 
+        {
+          label: "Total Trips",
+          backgroundColor: "#F3A27C",
+          data: yValues1
+        }
+      ]
+    },
+    options: {
+        scales:{
+          xAxes:[{stacked:true,}],
+          yAxes:[{stacked:true,}]
+      },
+        plugins:{
+          title: {
+          display: true,
+          text: 'Peak Intrazonal Trips',
+          font: {
+            size:16,
+            weight:'bold'
+        }
+      }
+      },
+    }
+});
+
+</script>
+
+</body>
+
+   <div class="tlf_op" id="tlf_op1">
+    <h4 style="padding: 10px 0;color:black">
+    Off-Peak Intrazonal Trips</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intrazonal Trips</th>
+      <th>Total Trips</th>
+      <th>Intrazonal Percentage(%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>HBW</th>
+      <td>12,174</td>
+      <td>918,519</td>
+      <td>1.33</td>
+    </tr>
+    <tr>
+      <th>HBSH</th>
+      <td>51,057</td>
+      <td>720,463</td>
+      <td>7.09</td>
+    </tr>
+    <tr>
+      <th>HBSR</th>
+      <td>141,817</td>
+      <td>1,901,988</td>
+      <td>7.46</td>
+    </tr>
+    <tr>
+      <th>HBSC</th>
+      <td>36,894</td>
+      <td>429,972</td>
+      <td>8.58</td>
+    </tr>
+    <tr>
+      <th>HBO</th>
+      <td>72,651</td>
+      <td>1,057,021</td>
+      <td>6.87</td>
+    </tr>
+    <tr>
+      <th>NHBW</th>
+      <td>11,707</td>
+      <td>360,511</td>
+      <td>3.25</td>
+    </tr>
+    <tr>
+      <th>NHBO</th>
+      <td>46,252</td>
+      <td>1,200,369</td>
+      <td>3.85</td>
+    </tr>
+    <tr>
+      <th>LTRK</th>
+      <td>3,242</td>
+      <td>112,921</td>
+      <td>2.87</td>
+    </tr>
+    <tr>
+      <th>HTRK</th>
+      <td>729</td>
+      <td>56,127</td>
+      <td>1.30</td>
+    </tr>
+    <tr>
+      <th>TAXI</th>
+      <td>825</td>
+      <td>30,043</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <th>EI</th>
+      <td>0</td>
+      <td>115,820</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>AIRP</th>
+      <td>145</td>
+      <td>42,779</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <th>COL</th>
+      <td>4,127</td>
+      <td>134,015</td>
+      <td>3.08</td>
+    </tr>
+    <tr>
+      <th>Overall</th>
+      <td>381,620</td>
+      <td>7,080,548</td>
+      <td>5.39</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+   <div class="tlf_pk" id="tlf_pk">
+    <h4 style="padding: 10px 0;color:black">
+    Peak Intrazonal Trips</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intrazonal Trips</th>
+      <th>Total Trips</th>
+      <th>Intrazonal Percentage(%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>HBW</th>
+      <td>20,945</td>
+      <td>1,192,534</td>
+      <td>1.76</td>
+    </tr>
+    <tr>
+      <th>HBSH</th>
+      <td>25,230</td>
+      <td>319,767</td>
+      <td>7.89</td>
+    </tr>
+    <tr>
+      <th>HBSR</th>
+      <td>62,668</td>
+      <td>917,025</td>
+      <td>6.83</td>
+    </tr>
+    <tr>
+      <th>HBSC</th>
+      <td>60,768</td>
+      <td>748,356</td>
+      <td>8.12</td>
+    </tr>
+    <tr>
+      <th>HBO</th>
+      <td>41,840</td>
+      <td>907,337</td>
+      <td>4.61</td>
+    </tr>
+    <tr>
+      <th>NHBW</th>
+      <td>10,609</td>
+      <td>233,412</td>
+      <td>4.55</td>
+    </tr>
+    <tr>
+      <th>NHBO</th>
+      <td>31,678</td>
+      <td>600,094</td>
+      <td>5.28</td>
+    </tr>
+    <tr>
+      <th>LTRK</th>
+      <td>2,857</td>
+      <td>72,317</td>
+      <td>3.95</td>
+    </tr>
+    <tr>
+      <th>HTRK</th>
+      <td>392</td>
+      <td>25,858</td>
+      <td>1.52</td>
+    </tr>
+    <tr>
+      <th>TAXI</th>
+      <td>917</td>
+      <td>24,581</td>
+      <td>3.73</td>
+    </tr>
+    <tr>
+      <th>EI</th>
+      <td>0</td>
+      <td>45,940</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>AIRP</th>
+      <td>71</td>
+      <td>20,871</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <th>COL</th>
+      <td>4,491</td>
+      <td>144,198</td>
+      <td>3.11</td>
+    </tr>
+    <tr>
+      <th>Overall</th>
+      <td>262,466</td>
+      <td>5,252,290</td>
+      <td>5.00</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        </body>
+        </html>
+        
