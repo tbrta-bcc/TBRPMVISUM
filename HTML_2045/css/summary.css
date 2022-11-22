@@ -296,7 +296,7 @@ div{
 
 .groupbar_tlf{
 	position: absolute;
-	top: 30px;
+	top: 35px;
 	height: 80px;
 	left:1100px;
 	width:700px;
@@ -305,7 +305,7 @@ div{
 
 .groupbar_tlf1{
 	position: absolute;
-	top: 480px;
+	top: 500px;
 	height: 80px;
 	left:1100px;
 	width:700px;
@@ -338,7 +338,7 @@ div{
 }
 .stack_op{
 	position: absolute;
-	top: 480px;
+	top: 500px;
 	height: 80px;
 	left:800px;
 	width:700px;

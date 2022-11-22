@@ -172,7 +172,6 @@ td:nth-child(6) {
   display: table;
 }
     </style>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 
 
@@ -294,13 +293,12 @@ td:nth-child(6) {
 	</nav>
   <a class="contactlink" id="contactlink" aria-current="true" href="https://bccorlando.wixsite.com/tbrpm" target="_blank" style="color: white;"><b>Feedback</b></a>&nbsp
 	</header>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<div class="groupbar_tlf" id="barchart_tlf">
-        <h4 style="padding: 10px 0;color:SteelBlue"></h4>
+        <h4> Average Trip Length (Miles)</h4>
     <canvas id="bar-chart-miles" style="width:100%;max-width:1200px"></canvas>
     </div>
     	<div class="groupbar_tlf1" id="barchart_tlf1">
-              <h4 style="padding: 10px 0;color:SteelBlue"> </h4>
+              <h4> Average Trip Length (Minutes) </h4>
 
     <canvas id="bar-chart-mins" style="width:100%;max-width:1200px"></canvas>
     </div>
@@ -326,15 +324,7 @@ new Chart(document.getElementById("bar-chart-miles"), {
       ]
     },
     options: {
-      plugins:{
-      title: {
-        display: true,
-        text: 'Average Trip Length (Miles)',
-        font:{
-          size:16
-        }
-      }
-    },
+  
          scales:{
         y:{
         title:{
@@ -371,15 +361,7 @@ new Chart(document.getElementById("bar-chart-mins"), {
       ]
     },
     options: {
-         plugins:{
-      title: {
-        display: true,
-        text: 'Average Trip Length (Minutes)',
-        font:{
-          size:16
-        }
-      }
-    },
+
       scales:{
         y:{
         title:{

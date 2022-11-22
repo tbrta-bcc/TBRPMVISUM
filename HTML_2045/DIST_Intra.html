@@ -285,14 +285,13 @@ td:nth-child(3) {
 	</nav>
   <a class="contactlink" id="contactlink" aria-current="true" href="https://bccorlando.wixsite.com/tbrpm" target="_blank" style="color: white;"><b>Feedback</b></a>&nbsp
 	</header>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 	<div class="stack_op" id="stack_op1">
-     <h4 style="padding: 10px 0;color:SteelBlue">  </h4>
+     <h4> Off-Peak Intrazonal Trips </h4>
     <canvas id="stack_op" style="width:100%;max-width:1200px"></canvas>
     </div>
     	<div class="stack_pk" id="stack_pk1">
-      <h4 style="padding: 10px 0;color:SteelBlue">  </h4>
+      <h4> Peak Intrazonal Trips </h4>
     <canvas id="stack_pk" style="width:100%;max-width:1200px"></canvas>
     </div>
 <script>
@@ -318,16 +317,7 @@ new Chart(document.getElementById("stack_op"), {
       ]
     },
     options: {
-        plugins:{
-          title: {
-          display: true,
-          text: 'Off-Peak Intrazonal Trips',
-          font: {
-            size:16,
-            weight:'bold'
-        }
-      }
-      },
+      
          scales:{
           xAxes:[{stacked:true,}],
           yAxes:[{stacked:true,}]
@@ -365,16 +355,7 @@ new Chart(document.getElementById("stack_pk"), {
           xAxes:[{stacked:true,}],
           yAxes:[{stacked:true,}]
       },
-        plugins:{
-          title: {
-          display: true,
-          text: 'Peak Intrazonal Trips',
-          font: {
-            size:16,
-            weight:'bold'
-        }
-      }
-      },
+        
     }
 });
 
