@@ -4,4 +4,4 @@
 **2045_CA:** [https://tbrta-bcc.github.io/TBRPMVISUM/HTML_2045/Home.html](https://tbrta-bcc.github.io/TBRPMVISUM/HTML_2045/Home.html) 
   
 [Model Package Download](https://github.com/tbrta-bcc/TBRPMVISUM/files/11222745/TBRPMVISUM.zip)  
-[TBRPM VISUM Model User Guide](https://github.com/tbrta-bcc/TBRPMVISUM/files/11222751/TBRPM.VISUM.Model.User.Guide.pdf)
+[TBRPM VISUM Model User Guide](https://github.com/tbrta-bcc/TBRPMVISUM/raw/main/TBRPM%20VISUM%20Model%20User%20Guide.pdf)
