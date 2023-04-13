@@ -1,0 +1,16 @@
+<?xml  version = "1.0"  encoding = "UTF-8"?>
+<FILTER  VERSIONNO = "2200">
+  <LINK
+    USEFILTER = "1"
+    COMPLEMENT = "0"
+    UNDIRECTED = "0">
+    <CONDITIONS>
+      <CONDITION        OPERATION = "OP_NONE"        COMPLEMENT = "0">
+        <EQUALVAL          ATTRIBUTE = "GTYPE"          VALUE = "7"        />        
+      </CONDITION>
+      <CONDITION        OPERATION = "OP_OR"        COMPLEMENT = "0">
+        <EQUALVAL          ATTRIBUTE = "REVERSELINK\GTYPE"          VALUE = "7"        />        
+      </CONDITION>
+    </CONDITIONS>
+  </LINK>
+</FILTER>
